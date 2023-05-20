@@ -14,6 +14,9 @@ export default {
       "Gray1": "#d3d3d3",
       "Red": "#ff1f00",
     },
+    fontFamily: {
+      "ubuntu": "Ubuntu"
+     },
     extend: {},
   },
   plugins: [],
