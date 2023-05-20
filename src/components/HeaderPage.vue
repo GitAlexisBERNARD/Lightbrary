@@ -45,7 +45,7 @@
             </div>
             
             <div class="flex items-center">
-                <RouterLink to="/">
+                <RouterLink to="/" class="lg:hidden">
                     <LogoIcon/>
                 </RouterLink>
             </div>
@@ -59,10 +59,10 @@
             <nav class="invisible opacity-0 fixed inset-0 h-screen w-screen bg-Primary1(Black) text-2xl text-white transition-all duration-300 ease-in-out lg:visible lg:relative lg:flex lg:h-auto lg:w-auto lg:items-center lg:bg-transparent lg:text-sm lg:font-bold lg:uppercase lg:tracking-wide lg:text-black lg:opacity-100">
                 <ul class="mt-[25vh] ml-16 lg:m-0 lg:flex">
                     <li class="text-Primary2(White)">
-                        <RouterLink class="menu-link" to="/films">Connexion</RouterLink>
+                        <RouterLink class="menu-link" to="/connexion">Connexion</RouterLink>
                     </li>
-                    <li class="text-Primary2(White)">
-                        <RouterLink class="menu-link" to="/séries">Inscription</RouterLink>
+                    <li class="text-Primary1(Black) bg-Secondary1(Gold) rounded-inscription">
+                        <RouterLink class="menu-link" to="/inscription">Inscription</RouterLink>
                     </li>
                 </ul>
             </nav>

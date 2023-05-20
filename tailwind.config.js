@@ -16,7 +16,10 @@ export default {
     },
     fontFamily: {
       "ubuntu": "Ubuntu"
-     },
+    },
+    borderRadius: {
+      "inscription":"101px"
+    },
     extend: {},
   },
   plugins: [],
