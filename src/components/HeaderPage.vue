@@ -3,6 +3,10 @@
     import LogoIconMobile from '@/components/icons/Logo_ampoule_Seule.vue'
     import LogoIconDesktop from '@/components/icons/SVG_blanc_1.vue'
     import UserIcon from '@/components/icons/user.vue'
+    import FilmIcon from '@/components/icons/film.vue'
+    import SerieIcon from '@/components/icons/tv.vue'
+    import BookIcon from '@/components/icons/book-open.vue'
+    import MusicIcon from '@/components/icons/music.vue'
     import { RouterLink } from 'vue-router'
 
     const activeMenu= ref(false)
@@ -39,16 +43,36 @@
                 v-scroll-lock="activeMenu"
                 >
                     <ul class="mt-[25vh] ml-16 lg:m-0 lg:flex">
-                        <li class="invisible font-text font-medium  text-Primary2(White) text-menu lg:visible"><RouterLink class="menu-link" to="/"
+                        <li class="hidden font-text font-medium  text-Primary2(White) text-menu lg:block"><RouterLink class="menu-link" to="/"
                             @click="closeMenu">Accueil</RouterLink></li>
-                        <li class="font-text font-medium  text-Primary2(White) text-menu"><RouterLink class="menu-link" to="/films"
-                            @click="closeMenu">Films</RouterLink></li>
-                        <li class="font-text font-medium  text-Primary2(White) text-menu"><RouterLink class="menu-link" to="/séries"
-                            @click="closeMenu">Séries</RouterLink></li>
-                        <li class="font-text font-medium  text-Primary2(White) text-menu"><RouterLink class="menu-link" to="/livres"
-                            @click="closeMenu">Livres</RouterLink></li>
-                        <li class="font-text font-medium  text-Primary2(White) text-menu"><RouterLink class="menu-link" to="/musiques"
-                            @click="closeMenu">Musiques</RouterLink></li>
+                        <li class="font-text font-medium  text-Primary2(White) text-menu">
+                            <RouterLink class="flex items-center gap-5 menu-link" to="/films"
+                            @click="closeMenu">
+                                <FilmIcon class="lg:hidden"/>
+                                Films
+                            </RouterLink>
+                        </li>
+                        <li class="font-text font-medium  text-Primary2(White) text-menu">
+                            <RouterLink class="flex items-center gap-5 menu-link" to="/séries"
+                            @click="closeMenu">
+                                <SerieIcon class="lg:hidden"/>
+                                Séries
+                            </RouterLink>
+                        </li>
+                        <li class="font-text font-medium  text-Primary2(White) text-menu">
+                            <RouterLink class="flex items-center gap-5 menu-link" to="/livres"
+                            @click="closeMenu">
+                                <BookIcon class="lg:hidden"/>
+                                Livres
+                            </RouterLink>
+                        </li>
+                        <li class="font-text font-medium  text-Primary2(White) text-menu">
+                            <RouterLink class="flex items-center gap-5 menu-link" to="/musiques"
+                            @click="closeMenu">
+                                <MusicIcon class="lg:hidden"/>
+                                Musiques
+                            </RouterLink>
+                        </li>
                     </ul>
                 </nav>
             </div>
