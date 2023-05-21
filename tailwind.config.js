@@ -18,7 +18,8 @@ export default {
       "text": "Ubuntu",
     },
     fontSize: {
-      "header(desktop)":"14px"
+      "menu":"14px",
+      "connexion":"16px",
     },
     borderRadius: {
       "inscription":"101px",

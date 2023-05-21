@@ -1,8 +1,9 @@
 <script setup lang="ts">
     import { ref, computed, watch } from 'vue'
-    import LogoIcon from '@/components/icons/Logo_ampoule_Seule.vue'
+    import LogoIconMobile from '@/components/icons/Logo_ampoule_Seule.vue'
+    import LogoIconDesktop from '@/components/icons/SVG_blanc_1.vue'
     import UserIcon from '@/components/icons/user.vue'
-    import { RouterLink } from 'vue-router';
+    import { RouterLink } from 'vue-router'
 
     const activeMenu= ref(false)
     function closeMenu() {
@@ -12,7 +13,13 @@
 
 <template>
     <header class="relative z-10 flex w-full translate-y-0 items-stretch justify-between px-6 py-2 transition-all duration-300 ease-in-out lg:py-0">
-        <div class="flex justify-start items-center self-stretch flex-grow relative gap-[17px]">
+        <div class="flex items-center">
+            <RouterLink to="/" class="hidden lg:block">
+                <LogoIconDesktop/>
+            </RouterLink>
+        </div>
+        
+        <div class="flex justify-start items-center self-stretch flex-grow relative gap-[17px] lg:justify-end">
             <div class="flex items-center gap-4 lg:flex-row-reverse">
                 <button 
                 class="relative z-10 flex h-5 w-8 flex-col justify-between lg:hidden"
@@ -27,26 +34,28 @@
                 </button>
             
 
-                <nav class="invisible opacity-0 fixed inset-0 h-screen w-screen bg-Primary1(Black) text-2xl text-white transition-all duration-300 ease-in-out lg:visible lg:relative lg:flex lg:h-auto lg:w-auto lg:items-center lg:bg-transparent lg:text-sm lg:font-bold lg:uppercase lg:tracking-wide lg:text-black lg:opacity-100" 
+                <nav class="invisible opacity-0 fixed inset-0 h-screen w-screen bg-Primary1(Black) text-2xl text-white transition-all duration-300 ease-in-out lg:visible lg:relative lg:flex lg:h-auto lg:w-auto lg:items-center lg:bg-transparent lg:tracking-wide lg:opacity-100" 
                 :class="{'!visible !opacity-100':activeMenu}"
                 v-scroll-lock="activeMenu"
                 >
                     <ul class="mt-[25vh] ml-16 lg:m-0 lg:flex">
-                        <li class="font-text font-medium  text-Primary2(White) text-header(desktop) normal-case"><RouterLink class="menu-link" to="/films"
+                        <li class="invisible font-text font-medium  text-Primary2(White) text-menu lg:visible"><RouterLink class="menu-link" to="/"
+                            @click="closeMenu">Accueil</RouterLink></li>
+                        <li class="font-text font-medium  text-Primary2(White) text-menu"><RouterLink class="menu-link" to="/films"
                             @click="closeMenu">Films</RouterLink></li>
-                        <li class="font-text font-medium  text-Primary2(White) text-header(desktop) normal-case"><RouterLink class="menu-link" to="/séries"
+                        <li class="font-text font-medium  text-Primary2(White) text-menu"><RouterLink class="menu-link" to="/séries"
                             @click="closeMenu">Séries</RouterLink></li>
-                        <li class="font-text font-medium  text-Primary2(White) text-header(desktop) normal-case"><RouterLink class="menu-link" to="/livres"
+                        <li class="font-text font-medium  text-Primary2(White) text-menu"><RouterLink class="menu-link" to="/livres"
                             @click="closeMenu">Livres</RouterLink></li>
-                        <li class="font-text font-medium  text-Primary2(White) text-header(desktop) normal-case"><RouterLink class="menu-link" to="/musiques"
+                        <li class="font-text font-medium  text-Primary2(White) text-menu"><RouterLink class="menu-link" to="/musiques"
                             @click="closeMenu">Musiques</RouterLink></li>
                     </ul>
                 </nav>
             </div>
             
             <div class="flex items-center">
-                <RouterLink to="/" class="lg:hidden">
-                    <LogoIcon/>
+                <RouterLink to="/" class="lg:invisible">
+                    <LogoIconMobile/>
                 </RouterLink>
             </div>
         </div>
@@ -56,12 +65,12 @@
                 <UserIcon/>
             </RouterLink>
 
-            <nav class="invisible opacity-0 fixed inset-0 h-screen w-screen bg-Primary1(Black) text-2xl text-white transition-all duration-300 ease-in-out lg:visible lg:relative lg:flex lg:h-auto lg:w-auto lg:items-center lg:bg-transparent lg:text-sm lg:font-bold lg:uppercase lg:tracking-wide lg:text-black lg:opacity-100">
+            <nav class="invisible opacity-0 fixed inset-0 h-screen w-screen bg-Primary1(Black) text-2xl text-white transition-all duration-300 ease-in-out lg:visible lg:relative lg:flex lg:h-auto lg:w-auto lg:items-center lg:bg-transparent lg:tracking-wide lg:text-black lg:opacity-100">
                 <ul class="mt-[25vh] ml-16 lg:m-0 lg:flex">
-                    <li class="text-Primary2(White)">
+                    <li class="font-text font-bold  text-Primary2(White) text-connexion">
                         <RouterLink class="menu-link" to="/connexion">Connexion</RouterLink>
                     </li>
-                    <li class="text-Primary1(Black) bg-Secondary1(Gold) rounded-inscription">
+                    <li class="font-text font-bold text-Primary1(Black) text-connexion bg-Secondary1(Gold) rounded-inscription">
                         <RouterLink class="menu-link" to="/inscription">Inscription</RouterLink>
                     </li>
                 </ul>
