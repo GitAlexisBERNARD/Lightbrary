@@ -32,13 +32,13 @@
                 v-scroll-lock="activeMenu"
                 >
                     <ul class="mt-[25vh] ml-16 lg:m-0 lg:flex">
-                        <li class="text-Primary2(White)"><RouterLink class="menu-link" to="/films"
+                        <li class="font-text font-medium  text-Primary2(White) text-header(desktop) normal-case"><RouterLink class="menu-link" to="/films"
                             @click="closeMenu">Films</RouterLink></li>
-                        <li class="text-Primary2(White)"><RouterLink class="menu-link" to="/séries"
+                        <li class="font-text font-medium  text-Primary2(White) text-header(desktop) normal-case"><RouterLink class="menu-link" to="/séries"
                             @click="closeMenu">Séries</RouterLink></li>
-                        <li class="text-Primary2(White)"><RouterLink class="menu-link" to="/livres"
+                        <li class="font-text font-medium  text-Primary2(White) text-header(desktop) normal-case"><RouterLink class="menu-link" to="/livres"
                             @click="closeMenu">Livres</RouterLink></li>
-                        <li class="text-Primary2(White)"><RouterLink class="menu-link" to="/musiques"
+                        <li class="font-text font-medium  text-Primary2(White) text-header(desktop) normal-case"><RouterLink class="menu-link" to="/musiques"
                             @click="closeMenu">Musiques</RouterLink></li>
                     </ul>
                 </nav>

@@ -15,10 +15,13 @@ export default {
       "Red": "#ff1f00",
     },
     fontFamily: {
-      "ubuntu": "Ubuntu"
+      "text": "Ubuntu",
+    },
+    fontSize: {
+      "header(desktop)":"14px"
     },
     borderRadius: {
-      "inscription":"101px"
+      "inscription":"101px",
     },
     extend: {},
   },
