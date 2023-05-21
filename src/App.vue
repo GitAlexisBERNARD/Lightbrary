@@ -1,10 +1,17 @@
 <script setup lang="ts">
-	import { RouterLink, RouterView } from 'vue-router'
+  import { RouterLink, RouterView } from 'vue-router'
   import HeaderPage from '@/components/HeaderPage.vue'
-  import bookopen from '@/components/icons/book-open.vue'
 </script>
 
 <template>
   <HeaderPage />
-  <h1>Lightbrary</h1>
+  <RouterLink to="/about">About</RouterLink>
+  <main>
+    <!-- Suspense sera utile pour charger les données (await) -->
+    <Suspense>
+      <!-- Affiche la page -->
+      <RouterView />
+    </Suspense>
+  </main>
 </template>
+  
