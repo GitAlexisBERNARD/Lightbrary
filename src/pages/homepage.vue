@@ -1,7 +1,9 @@
 <script setup lang="ts">
+import HomeCard from '@/components/HomeCard.vue';
 </script>
 
 <template>
-    <img src="public\img\Banniere.webp" alt="Banniere" class="relative">
-    object cover 
+    <main class="bg-Primary1(Black)">
+        <HomeCard/>
+    </main>
 </template>
