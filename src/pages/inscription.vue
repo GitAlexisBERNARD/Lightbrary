@@ -33,6 +33,7 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 const pb = new PocketBase(pocketbase_ip);
+const router = useRouter();
 
 export default {
   methods: {
@@ -53,7 +54,7 @@ export default {
           passwordConfirm: confirmPassword,
           name: document.getElementById('name').value,
         });
-        this.$router.push('/dashboard');
+        router.push('/dashboard');
       } catch (error) {
         console.error('Erreur lors de l\'inscription :', error);
       }

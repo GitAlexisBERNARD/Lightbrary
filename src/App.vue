@@ -4,10 +4,7 @@
 </script>
 
 <template>
-  <HeaderPage />
-  <RouterLink to="/about">About</RouterLink>
-  <br />
-    
+  <HeaderPage />    
   <RouterLink to="/api">Api</RouterLink>
   <br />
   <RouterLink to="/connexion">Connexion</RouterLink>
