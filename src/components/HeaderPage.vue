@@ -94,7 +94,7 @@
                     <li class="font-text font-bold  text-Primary2(White) text-connexion">
                         <RouterLink class="menu-link" to="/connexion">Connexion</RouterLink>
                     </li>
-                    <li class="font-text font-bold text-Primary1(Black) text-connexion bg-Secondary1(Gold) rounded-inscription">
+                    <li class="font-text font-bold text-Primary1(Black) text-connexion bg-Secondary1(Gold) rounded-inscription px-5">
                         <RouterLink class="menu-link" to="/inscription">Inscription</RouterLink>
                     </li>
                 </ul>
