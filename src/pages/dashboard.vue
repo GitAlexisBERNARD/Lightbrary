@@ -1,6 +1,17 @@
-<script>
-import PocketBase from 'pocketbase';
+<script setup lang="ts">
+  import { RouterLink, RouterView } from 'vue-router'
+  import HeaderPage from '@/components/HeaderPage.vue'
+</script>
 
+
+<template>
+  <div>
+    <h1>Bienvenue sur le tableau de bord</h1>
+    <p v-if="userInfo">Vous êtes connecté en tant que {{ userInfo.name }}</p>
+  </div>
+</template>
+<script lang="ts">
+import PocketBase from 'pocketbase';
 var pocketbase_ip = '';
 if (process.env.NODE_ENV === 'production') {
   pocketbase_ip = '193.168.146.150:80';
@@ -24,10 +35,3 @@ export default {
   }
 };
 </script>
-
-<template>
-  <div>
-    <h1>Bienvenue sur le tableau de bord</h1>
-    <p v-if="userInfo">Vous êtes connecté en tant que {{ userInfo.name }}</p>
-  </div>
-</template>

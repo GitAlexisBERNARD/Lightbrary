@@ -88,17 +88,8 @@
             <RouterLink to="/" class="lg:hidden">
                 <UserIcon/>
             </RouterLink>
-
-            <nav class="invisible opacity-0 fixed inset-0 h-screen w-screen bg-Primary1(Black) text-2xl text-white transition-all duration-300 ease-in-out lg:visible lg:relative lg:flex lg:h-auto lg:w-auto lg:items-center lg:bg-transparent lg:tracking-wide lg:text-black lg:opacity-100">
-                <ul class="mt-[25vh] ml-16 lg:m-0 lg:flex">
-                    <li class="font-text font-bold  text-Primary2(White) text-connexion">
-                        <RouterLink class="menu-link" to="/connexion">Connexion</RouterLink>
-                    </li>
-                    <li class="font-text font-bold text-Primary1(Black) text-connexion bg-Secondary1(Gold) rounded-inscription px-5">
-                        <RouterLink class="menu-link" to="/inscription">Inscription</RouterLink>
-                    </li>
-                </ul>
-            </nav>
+            <slot name="login"></slot>
+            <slot name="connected"></slot>
         </div>
     </header>
 </template>
