@@ -18,6 +18,9 @@ export default {
       "ubuntu": "Ubuntu"
      },
     extend: {},
+     gridTemplateColumns: {
+      principal: 'repeat(12, minmax(0, 64px)'
+     }
   },
   plugins: [],
 }
