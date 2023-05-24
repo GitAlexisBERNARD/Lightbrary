@@ -23,6 +23,7 @@
 </template>
 
 <script>
+import { useRouter } from 'vue-router';
 import PocketBase from 'pocketbase';
 
 var pocketbase_ip = '';
@@ -33,17 +34,18 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 const pb = new PocketBase(pocketbase_ip);
-const router = useRouter();
 
 export default {
-  methods: {
-    async register() {
+  setup() {
+    const router = useRouter();
+
+    const register = async () => {
       const password = document.getElementById('passwd').value;
       const confirmPassword = document.getElementById('confirmPasswd').value;
 
       if (password !== confirmPassword) {
-        document.getElementById("error-message").textContent = "Les mots de passe ne correspondent pas.";
-        console.error('Les mots de passe ne correspondent pas.');
+        document.getElementById('error-message').textContent = "Les mots de passe ne correspondent pas.";
+        console.error("Les mots de passe ne correspondent pas.");
         return;
       }
 
@@ -54,11 +56,16 @@ export default {
           passwordConfirm: confirmPassword,
           name: document.getElementById('name').value,
         });
+        console.log("pourquoi ça ne marche pas ?");
         router.push('/dashboard');
       } catch (error) {
-        console.error('Erreur lors de l\'inscription :', error);
+        console.error("Erreur lors de l'inscription :", error);
       }
-    }
-  }
+    };
+
+    return {
+      register,
+    };
+  },
 };
 </script>

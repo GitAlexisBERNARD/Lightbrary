@@ -4,7 +4,10 @@
 </script>
 
 <template>
-  <HeaderPage />    
+  <div class="bg-Primary1(Black)">
+    <HeaderPage />
+    <h1>Lightbrary</h1>
+  </div>   
   <RouterLink to="/api">Api</RouterLink>
   <br />
   <RouterLink to="/connexion">Connexion</RouterLink>
@@ -17,9 +20,5 @@
       <!-- Affiche la page -->
       <RouterView />
   </main>
-  <div class="bg-Primary1(Black)">
-    <HeaderPage />
 
-    <h1>Lightbrary</h1>
-  </div>
 </template>

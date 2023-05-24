@@ -33,7 +33,6 @@ const pb = new PocketBase(pocketbase_ip);
 export default {
   setup() {
     const router = useRouter()
-
     return {
       async login() {
         try {
