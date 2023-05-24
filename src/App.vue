@@ -13,5 +13,6 @@
       <RouterView />
     </Suspense>
   </main>
+  <FooterPage />
 </template>
   
