@@ -6,7 +6,7 @@ import IconSearch from '@/components/icons/search.vue'
 <template>
     <div class="w-[333px] h-14 relative rounded-[20px] bg-[#2c2927] border border-[#ecb365]">
         <IconSearch class=""/>
-        <p class="w-[219px] absolute left-[70px] top-3.5 font-ubuntu text-Primary2(White)">
+        <p class="w-[219px] absolute left-[70px] top-3.5 font-text text-Primary2(White)">
             Recherche un film,une série...
         </p>
         <div

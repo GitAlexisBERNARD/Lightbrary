@@ -15,7 +15,7 @@ export default {
       "Red": "#ff1f00",
     },
     fontFamily: {
-      "ubuntu": "Ubuntu"
+      "text": "Ubuntu"
      },
     extend: {},
      gridTemplateColumns: {
