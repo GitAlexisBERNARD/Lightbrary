@@ -1,11 +1,15 @@
 <script lang="ts">
 export default {
-    
-}
+    props:['visibleSlide','index'],
+    data() {
+        return {
+    };
+  },
+};
 </script>
 
 <template>
-    <div v-show="visibleSlide === index" class="carrousel-slide">
+    <div class="carrousel-slide" v-show="visibleSlide===index">
         <slot></slot>
     </div>
 </template>
