@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import HomeCard from '@/components/HomeCard.vue';
 import IconSearch from '@/components/icons/search.vue'
+import CarrouselSlide from '@/components/CarrouselSlide.vue';
+import Carrousel from '@/components/Carrousel.vue'
 </script>
 
 <template>
@@ -12,5 +14,16 @@ import IconSearch from '@/components/icons/search.vue'
             </p>
         </div>
         <HomeCard/>
+        <div>
+            <carrousel>
+                <carrousel-slide v-for="(slide, index) in slides" 
+                    :key="slide" 
+                    :index="index"
+                    :visibleSlide="visibleSlide"
+                    >
+                    <HomeCard/>
+                </carrousel-slide>
+            </carrousel>
+        </div>
     </main>
 </template>
