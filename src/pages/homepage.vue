@@ -41,29 +41,41 @@ export default {
 </script>
 
 <template>
-  <main class="bg-Primary1(Black) pt-10">
-    <div class="w-[333px] h-14 relative flex items-center mx-auto px-8 rounded-[20px] bg-Primary1(Black) border-[1px] border-Secondary1(Gold) lg:w-[666px]">
-      <Search class="mr-5"/>
-      <p class="relative font-text text-Primary2(White)">
-        Recherche un film, une série...
-      </p>
-    </div>
+    <main class="bg-Primary1(Black) pt-10 px-5">
+        <div class="w-[333px] h-14 relative flex items-center mx-auto px-8 rounded-[20px] bg-Primary1(Black) border-[1px] border-Secondary1(Gold) lg:w-[666px]">
+            <Search class="mr-5"/>
+            <p class="relative font-text text-Primary2(White)">
+                Recherche un film, une série...
+            </p>
+        </div>
 
-    <div>
-      <Carrousel
-        @next="next"
-        @prev="prev"
-      >
-        <CarrouselSlide v-for="(slide, index) in slides" 
-                        :key="slide" 
-                        :index="index"
-                        :visibleSlide="visiblSlide"
-        >
-          <HomeCard /> 
-        </CarrouselSlide>
-      </Carrousel>
-    </div>
+        <div>
+            <h1 class="font-text text-Primary2(White) text-[24px]">Notre selection</h1>
 
-    <HomeCard/>
-  </main>
+            <Carrousel
+                @next="next"
+                @prev="prev"
+            >
+                <CarrouselSlide v-for="(slide, index) in slides" 
+                                :key="slide" 
+                                :index="index"
+                                :visibleSlide="visiblSlide"
+                >
+                <HomeCard /> 
+                </CarrouselSlide>
+            </Carrousel>
+        </div>
+
+
+        <div>
+            <div class="font-text text-Primary2(White) text-[16px] flex justify-between gap-6 lg:w-[451px] lg:text-[24px] py-5">
+                <p class="text-Secondary1(Gold) border-b-[3px]">Film</p>
+                <p>Série</p>
+                <p>Livre</p>
+                <p>Musique</p>
+
+            </div>
+            <HomeCard class="grid-cols-2 lg:grid-cols-6"/>
+        </div>
+    </main>
 </template>
