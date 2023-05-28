@@ -3,6 +3,20 @@ import HomeCard from '@/components/HomeCard.vue';
 import IconSearch from '@/components/icons/search.vue'
 import CarrouselSlide from '@/components/CarrouselSlide.vue';
 import Carrousel from '@/components/Carrousel.vue'
+
+export default {
+    data () {
+        return {
+            slides [
+                ''
+            ]
+        },
+    }
+    components : {
+        Carrousel,
+        CarrouselSlide,
+    }
+}
 </script>
 
 <template>
