@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+    .grille {
+      @apply px-6 lg:grid lg:grid-cols-principal lg:justify-center lg:gap-12;
+    }
+}
