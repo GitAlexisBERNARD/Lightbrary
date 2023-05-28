@@ -1,28 +1,17 @@
 <script setup lang="ts">
 import IconeAffinite from '@/components/icons/Affinite.vue'
-import IconSearch from '@/components/icons/search.vue'
 </script>
 
 <template>
-    <div class="w-[333px] h-14 relative rounded-[20px] bg-[#2c2927] border border-[#ecb365]">
-        <IconSearch class=""/>
-        <p class="w-[219px] absolute left-[70px] top-3.5 font-text text-Primary2(White)">
-            Recherche un film,une série...
-        </p>
-        <div
-            class="flex justify-start items-start w-[51.78px] h-[21.6px] absolute left-[152.29px] top-0 gap-2.5 px-2"
-        ></div>
-    </div>
-
-    <div class="w-40 h-[261px] grid-cols-principal">
+    <div class="flex-row">
         <img
             src="public\img\Anneaux.webp"
             class="w-40 h-[261px] relative object-cover border border-Primary2(White)"
         />
         
-        <div class="bg-Primary1(Black)">
-            <p class="w-[33px] relative text-lg text-left font">87%</p>
-            <IconeAffinite/>
+        <div class="w-[69px] h-[27px] flex-row rounded-tl-[20px] rounded-bl-[20px] bg-Primary1(Black) border-t-0 border-r border-b-0 border-l-0 border-Primary2(White)">
+            <IconeAffinite class="w-[14.24px] h-[21px]"/>
+            <p class="text-Primary2(White) text-left text-18px font-text">87%</p>
         </div>
     </div>
 </template>
