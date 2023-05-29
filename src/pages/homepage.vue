@@ -2,7 +2,7 @@
 import HomeCard from '@/components/HomeCard.vue';
 import CarrouselSlide from '@/components/CarrouselSlide.vue';
 import Carrousel from '@/components/Carrousel.vue';
-import Search from '@/components/icons/search.vue';
+import Recherche from '@/components/Recherche.vue';
 
 export default {
   data() {
@@ -36,19 +36,16 @@ export default {
     Carrousel,
     CarrouselSlide,
     HomeCard,
-    Search
+    Recherche
 }
 };
 </script>
 
 <template>
     <main class="bg-Primary1(Black) pt-10">
-        <div class="w-[333px] h-14 relative flex items-center mx-auto px-8 rounded-[20px] bg-Primary1(Black) border-[1px] border-Secondary1(Gold) lg:w-[666px]">
-            <Search class="mr-5"/>
-            <p class="relative font-text text-Primary2(White)">
-                Recherche un film, une série...
-            </p>
-        </div>      
+        <div class="grille_mobile lg:grille_desktop">
+            <Recherche/>
+        </div>
 
         <div class="px-5">
             <h1 class="font-text text-Primary2(White) text-[24px]">Notre selection</h1>
