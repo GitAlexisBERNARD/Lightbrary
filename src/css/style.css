@@ -4,6 +4,6 @@
 
 @layer components {
     .grille {
-      @apply px-6 lg:grid lg:grid-cols-principal lg:justify-center lg:gap-12;
+      @apply px-6 lg:grid lg:grid-cols-desktop lg:justify-center lg:gap-12;
     }
 }

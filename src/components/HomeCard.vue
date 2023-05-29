@@ -3,7 +3,7 @@ import IconeAffinite from '@/components/icons/Affinite.vue'
 </script>
 
 <template>
-    <div class="flex relative min-w-[160px] max-w-[201px] border border-Primary2(White)">
+    <div class="flex relative min-w-[160px] max-w-[201px] col-span-2 border border-Primary2(White)">
         <img
             src="public/img/Anneaux.webp"
             class="w-full h-full z-10 object-cover"

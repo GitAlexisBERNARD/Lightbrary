@@ -18,8 +18,8 @@ export default {
       "text": "Ubuntu"
      },
     extend: {},
-     gridTemplateColumns: {
-      principal: 'repeat(12, minmax(0, 64px)'
+      gridTemplateColumns: {
+        desktop: 'repeat(12, minmax(0, 64px))'
      }
   },
   plugins: [],
