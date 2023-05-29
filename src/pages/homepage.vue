@@ -62,7 +62,7 @@ export default {
                                 :index="index"
                                 :visibleSlide="visiblSlide"
                 >
-                <HomeCard /> 
+                    <HomeCard/>
                 </CarrouselSlide>
             </Carrousel>
         </div>
@@ -76,8 +76,15 @@ export default {
                 <p>Musique</p>
 
             </div>
-            <div>
-                <HomeCard class="grid-cols-2 lg:grid-cols-6"/>
+            <div class=" grid-cols-2 flex lg:grid-cols-principal">
+                <HomeCard class="my-5 mr-5" />
+                <HomeCard class="my-5 mr-5" />
+                <HomeCard class="my-5 mr-5" />
+                <HomeCard class="my-5 mr-5" />
+                <HomeCard class="my-5 mr-5" />
+                <HomeCard class="my-5 mr-5" />
+                <HomeCard class="my-5 mr-5" />
+                <HomeCard class="my-5 mr-5" />
             </div>
         </div>
     </main>
