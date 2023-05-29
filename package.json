@@ -12,7 +12,10 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
+    "swiper": "^9.3.2",
     "vue": "^3.3.2",
+    "vue-carousel": "^0.18.0",
+    "vue-owl-carousel": "^2.0.3",
     "vue-router": "^4.2.0"
   },
   "devDependencies": {

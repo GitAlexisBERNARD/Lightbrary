@@ -76,7 +76,9 @@ export default {
                 <p>Musique</p>
 
             </div>
-            <HomeCard class="grid-cols-2 lg:grid-cols-6"/>
+            <div>
+                <HomeCard class="grid-cols-2 lg:grid-cols-6"/>
+            </div>
         </div>
     </main>
 </template>

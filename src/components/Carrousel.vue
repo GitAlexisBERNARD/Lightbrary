@@ -1,18 +1,18 @@
 <script lang="ts">
-export default {
-  data() {
-    return {
-    };
-  },
-  methods: {
-    next () {
-        this.$emit('next')
+  export default {
+    data() {
+      return {
+      };
     },
-    prev () {
-        this.$emit('prev')
+    methods: {
+      next () {
+          this.$emit('next')
+      },
+      prev () {
+          this.$emit('prev')
+      }
     }
-  }
-};
+  };
 </script>
 
 <template>
