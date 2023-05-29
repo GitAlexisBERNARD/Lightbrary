@@ -19,7 +19,8 @@ export default {
      },
     extend: {},
       gridTemplateColumns: {
-        desktop: 'repeat(12, minmax(0, 64px))'
+        desktop: 'repeat(12, minmax(0, 86px))',
+        mobile: 'repeat(4, minmax(0, 64px))'
      }
   },
   plugins: [],

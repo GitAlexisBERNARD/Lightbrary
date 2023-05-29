@@ -76,7 +76,7 @@ export default {
                 <p>Musique</p>
 
             </div>
-            <div class="grille">
+            <div class="grille_mobile lg:grille_desktop">
                 <HomeCard class="" />
                 <HomeCard class="" />
                 <HomeCard class="" />
