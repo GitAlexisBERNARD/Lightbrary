@@ -1,8 +1,8 @@
 <script lang="ts">
 import HomeCard from '@/components/HomeCard.vue';
-import Search from '@/components/icons/search.vue'
 import CarrouselSlide from '@/components/CarrouselSlide.vue';
 import Carrousel from '@/components/Carrousel.vue';
+import Search from '@/components/icons/search.vue';
 
 export default {
   data() {
@@ -35,7 +35,8 @@ export default {
   components: {
     Carrousel,
     CarrouselSlide,
-    HomeCard
+    HomeCard,
+    Search
 }
 };
 </script>
@@ -47,7 +48,7 @@ export default {
             <p class="relative font-text text-Primary2(White)">
                 Recherche un film, une série...
             </p>
-        </div>
+        </div>      
 
         <div>
             <h1 class="font-text text-Primary2(White) text-[24px]">Notre selection</h1>
