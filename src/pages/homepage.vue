@@ -1,44 +1,6 @@
-<script lang="ts">
+<script setup lang="ts">
 import HomeCard from '@/components/HomeCard.vue';
-import CarrouselSlide from '@/components/CarrouselSlide.vue';
-import Carrousel from '@/components/Carrousel.vue';
 import Recherche from '@/components/Recherche.vue';
-
-export default {
-  data() {
-    return {
-      slides: [HomeCard],
-      visiblSlide:0,
-    };
-  },
-  computed: {
-    slidesLen() {
-        return this.slides.length;
-    }
-  },
-  methods: {
-    next () {
-        if(this.visiblSlide >= this.slidesLen - 1) {
-            this.visiblSlide = 0;
-        }else {
-            this.visiblSlide++;
-        }
-    },
-    prev() {
-        if(this.visiblSlide <= 0) {
-            this.visiblSlide >= this.slidesLen - 1;
-        }else {
-            this.visiblSlide--;
-        }
-    }
-  },
-  components: {
-    Carrousel,
-    CarrouselSlide,
-    HomeCard,
-    Recherche
-}
-};
 </script>
 
 <template>
@@ -47,21 +9,15 @@ export default {
             <Recherche/>
         </div>
 
-        <div class="px-5">
-            <h1 class="font-text text-Primary2(White) text-[24px]">Notre selection</h1>
+        <div class="grille_mobile lg:grille_desktop pt-5">
+            <h1 class="col-span-4 font-text text-Primary2(White) text-[24px]">Notre selection</h1>
 
-            <Carrousel
-                @next="next"
-                @prev="prev"
-            >
-                <CarrouselSlide v-for="(slide, index) in slides" 
-                                :key="slide" 
-                                :index="index"
-                                :visibleSlide="visiblSlide"
-                >
-                    <HomeCard/>
-                </CarrouselSlide>
-            </Carrousel>
+            <div class="col-span-4 lg:col-span-12 flex gap-7 overflow-hidden overflow-x-scroll lg:justify-center">
+                <HomeCard class="flex-none"/>
+                <HomeCard class="flex-none"/>
+                <HomeCard class="flex-none"/>
+                <HomeCard class="flex-none"/>
+            </div>
         </div>
 
 
