@@ -33,7 +33,7 @@
   <RouterLink to="/dashboard">Tableau de bord</RouterLink>
   <br />
   <RouterLink to="/inscription">Inscription</RouterLink> -->
-  <RouterLink to="/profil/[id]">
+  <RouterLink to="/pages/[id]">
     Profil
   </RouterLink>
   <main>
