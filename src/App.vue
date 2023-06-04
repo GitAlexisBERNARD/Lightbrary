@@ -33,6 +33,9 @@
   <RouterLink to="/dashboard">Tableau de bord</RouterLink>
   <br />
   <RouterLink to="/inscription">Inscription</RouterLink> -->
+  <RouterLink to="/profil/[id]">
+    Profil
+  </RouterLink>
   <main>
     <!-- Suspense sera utile pour charger les données (await) -->
     <!-- Affiche la page -->
