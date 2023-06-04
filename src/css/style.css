@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 @layer components {
-  .grille_connexion {
+  .grille_desktop {
     @apply px-6 lg:grid lg:grid-cols-desktop lg:justify-center lg:gap-8;
   };
   .grille_mobile {
