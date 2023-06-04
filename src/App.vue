@@ -37,6 +37,7 @@
     Profil
   </RouterLink>
   <main>
+    
     <!-- Suspense sera utile pour charger les données (await) -->
     <!-- Affiche la page -->
     <RouterView />

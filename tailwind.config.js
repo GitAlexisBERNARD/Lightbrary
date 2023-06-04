@@ -26,7 +26,7 @@ export default {
     },
     extend: {
       gridTemplateColumns: {
-        desktop_connexion: 'repeat(12, minmax(0, 86px))',
+        desktop: 'repeat(12, minmax(0, 86px))',
         mobile: 'repeat(4, minmax(0, 64px))'
       },
     },
