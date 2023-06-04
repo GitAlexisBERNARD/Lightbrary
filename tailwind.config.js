@@ -24,7 +24,10 @@ export default {
     borderRadius: {
       "inscription":"101px",
     },
-    extend: {},
-  },
+    extend: {
+      gridTemplateColumns: {
+        desktop_connexion: 'repeat(12, minmax(0, 86px))',
+      },
+    },
   plugins: [],
 }

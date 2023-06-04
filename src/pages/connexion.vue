@@ -1,22 +1,3 @@
-<template>
-  <header>
-    <div>
-      <label for="login">Login:</label>
-      <input type="email" id="login" />
-      <p></p>
-      <label for="passwd">Password:</label>
-      <input type="password" id="passwd" />
-      <p id="error-message" style="color: red;"></p>
-      <button v-on:click="login">Login</button>
-      <p></p>
-      <button v-on:click="reset">Reset Password</button>
-    </div>
-  </header>
-
-  <main>
-  </main>
-</template>
-
 <script>
 import { useRouter } from 'vue-router'
 import PocketBase from 'pocketbase';
@@ -59,3 +40,21 @@ export default {
 };
 </script>
 
+<template>
+  <header>
+    <div>
+      <label for="login">Login:</label>
+      <input type="email" id="login" />
+      <p></p>
+      <label for="passwd">Password:</label>
+      <input type="password" id="passwd" />
+      <p id="error-message" style="color: red;"></p>
+      <button v-on:click="login">Login</button>
+      <p></p>
+      <button v-on:click="reset">Reset Password</button>
+    </div>
+  </header>
+
+  <main>
+  </main>
+</template>
