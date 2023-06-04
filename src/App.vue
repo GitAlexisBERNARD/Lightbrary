@@ -1,11 +1,14 @@
 <script setup lang="ts">
   import { RouterLink, RouterView } from 'vue-router'
+  import { Suspense } from 'vue'
   import HeaderPage from '@/components/HeaderPage.vue'
   import FooterPage from '@/components/FooterPage.vue'
 </script>
 
 <template>
-  <HeaderPage />
+  <Suspense>
+    <HeaderPage />
+  </Suspense>
   <RouterLink to="/about">About</RouterLink>
   <main>
     <!-- Suspense sera utile pour charger les données (await) -->
@@ -14,6 +17,9 @@
       <RouterView />
     </Suspense>
   </main>
-  <FooterPage />
+  <Suspense>
+    <FooterPage />
+  </Suspense>
+  <RouterLink to="/contact">Contact</RouterLink>
 </template>
   
