@@ -5,6 +5,7 @@ import reset from '@/components/icons/reset.vue';
 import langue from '@/components/icons/langue.vue';
 import deconnexion from '@/components/icons/deconnexion.vue';
 import chevronRightVue from '@/components/icons/chevron-right.vue';
+import HomeCard from '@/components/HomeCard.vue'
 </script>
 
 <template>
@@ -50,7 +51,8 @@ import chevronRightVue from '@/components/icons/chevron-right.vue';
 
                     <h2 class="hidden lg:block lg:col-span-2 lg:font-text lg:font-bold lg:text-Primary2(White) lg:text-[24px] lg:border-b lg:border-Secondary1(Gold) lg:pb-2 lg:pl-1">Ma liste</h2>
 
-                    <div class="hidden lg:block">
+                    <div class="hidden lg:block lg:row-start-2 lg:col-span-2">
+                        <HomeCard/>
                     </div>
                 </div>
 
