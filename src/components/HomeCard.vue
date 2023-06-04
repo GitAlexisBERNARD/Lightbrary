@@ -5,7 +5,7 @@ import IconeAffinite from '@/components/icons/Affinite.vue'
 <template>
     <div class="relative min-w-[160px] max-w-[201px] col-span-2 border border-Primary2(White)">
         <img
-            src="public/img/Anneaux.webp"
+            src="/img/Anneaux.webp"
             class="w-full h-full z-10 object-cover"
         />
         
