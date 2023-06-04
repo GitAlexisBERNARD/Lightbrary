@@ -26,13 +26,13 @@
     </HeaderPage>
     <h1>Lightbrary</h1>
   </div>
-  <RouterLink to="/api">API</RouterLink>
+  <!-- <RouterLink to="/api">API</RouterLink>
   <br />
   <RouterLink to="/connexion">Connexion</RouterLink>
   <br />
   <RouterLink to="/dashboard">Tableau de bord</RouterLink>
   <br />
-  <RouterLink to="/inscription">Inscription</RouterLink>
+  <RouterLink to="/inscription">Inscription</RouterLink> -->
   <main>
     <!-- Suspense sera utile pour charger les données (await) -->
     <!-- Affiche la page -->

@@ -4,7 +4,7 @@
 
 @layer components {
   .grille_connexion {
-    @apply px-6 lg:grid lg:grid-cols-desktop_principal lg:justify-center lg:gap-8;
+    @apply px-6 lg:grid lg:grid-cols-desktop_connexion lg:justify-center lg:gap-8;
   };
   .grille_mobile {
     @apply px-6 grid grid-cols-mobile justify-center gap-8;
