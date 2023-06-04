@@ -34,7 +34,7 @@
   <br />
   <RouterLink to="/inscription">Inscription</RouterLink> -->
   <RouterLink to="/pages/[id]">
-    Profil
+    Page Ready Player One
   </RouterLink>
   <main>
     
