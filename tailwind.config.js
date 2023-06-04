@@ -15,6 +15,14 @@ export default {
       "Red": "#ff1f00",
       "Sky": "1A2131",
     },
+    fontSize: {
+      "xs": "0.6rem",
+      "sm": "0.8rem",
+      "base": "1rem",
+      "lg": "1.5rem",
+      "xl": "2rem",
+      "2xl": "2.25rem"
+     },
     fontFamily: {
       "ubuntu": "Ubuntu"
      },
