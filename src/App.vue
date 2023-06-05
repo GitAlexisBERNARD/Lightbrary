@@ -1,11 +1,9 @@
 <script setup lang="ts">
-  import { RouterLink, RouterView } from 'vue-router'
-  import HeaderPage from '@/components/HeaderPage.vue'
+  import { RouterView } from 'vue-router'
+  import { Suspense } from 'vue';
 </script>
 
 <template>
-  <HeaderPage />
-  <RouterLink to="/about">About</RouterLink>
   <main>
     <!-- Suspense sera utile pour charger les données (await) -->
     <Suspense>
