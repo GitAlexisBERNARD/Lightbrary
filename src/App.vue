@@ -39,6 +39,7 @@ import { ref } from 'vue'
             <Polygon class="fill-Secondary1(Gold)" :class="{'rotate-180':profil}"/>
             <img class="w-[40px]" src="/img/Test_Profil.webp" alt="Photo de profil">
           </button>
+          
           <div class="hidden fixed mt-10 p-2 bg-Primary1(Black)" :class="{'!block' :profil}">
             <nav>
               <ul class="font-text font-medium text-[14px] text-Primary2(White)">
@@ -49,9 +50,6 @@ import { ref } from 'vue'
               </ul>
             </nav>
           </div>
-          
-
-          
         </div>
       </template>
     </HeaderPage>
