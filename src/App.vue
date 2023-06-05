@@ -36,7 +36,7 @@ import { ref } from 'vue'
         <div class="hidden lg:flex flex-col gap-3">
           <button class="flex items-center gap-3 font-text font-medium text-[14px] text-Secondary1(Gold)" @click="profil=!profil">
             krys_film
-            <Polygon class="fill-Secondary1(Gold) rotate-90" :class="{'rotate-0':profil}"/>
+            <Polygon class="fill-Secondary1(Gold)" :class="{'rotate-180':profil}"/>
             <img class="w-[40px]" src="/img/Test_Profil.webp" alt="Photo de profil">
           </button>
           <div class="hidden fixed mt-10 p-2 bg-Primary1(Black)" :class="{'!block' :profil}">
