@@ -6,9 +6,7 @@
 </script>
 
 <template>
-  <Suspense>
     <HeaderPage />
-  </Suspense>
   <RouterLink to="/about">About</RouterLink>
   <main>
     <!-- Suspense sera utile pour charger les données (await) -->
@@ -17,9 +15,7 @@
       <RouterView />
     </Suspense>
   </main>
-  <Suspense>
     <FooterPage />
-  </Suspense>
   <RouterLink to="/contact">Contact</RouterLink>
 </template>
   
