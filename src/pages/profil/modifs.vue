@@ -40,11 +40,7 @@ import plus from '@/components/icons/plus.vue';
                     <p class="font-text" id="error-message" style="color: red;"></p>
                 </div>
 
-                <div class="col-span-4 col-start-5">
-                    <p class="font-text text-Primary2(White) text-[12px]">J'accepte les conditions d'utilisation et la charte sur le respect de la vie privée.</p>
-                </div>
-
-                <button class="col-span-2 col-start-6 py-4 bg-Secondary1(Gold) font-text font-medium text-Primary1(Black) text-[20px] rounded-[8px]" @click="register">S'inscrire</button>
+                <button class="col-span-2 col-start-6 py-4 bg-Secondary1(Gold) font-text font-medium text-Primary1(Black) text-[20px] rounded-[8px]" @click="register">Sauvegarder</button>
                     
                 <div >
                     <hr />
