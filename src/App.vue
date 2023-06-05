@@ -7,7 +7,7 @@ import FooterPage from '@/components/FooterPage.vue'
 
 <template>
   <!--<HeaderPage />-->
-  <RouterLink to="/about">About</RouterLink>
+  <!--<RouterLink to="/about">About</RouterLink>-->
   <main>
     <!-- Suspense sera utile pour charger les données (await) -->
     <Suspense>
