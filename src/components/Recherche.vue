@@ -155,21 +155,37 @@ export default {
     <div class="grille_mobile" v-for="(item, index) in combinedResults" :key="index">
       <template v-if="item.type === 'film'">
         <img class="col-span-1 w-full mb-5 pb-5" v-if="item.imageUrl" :src="item.imageUrl" :alt="item.title" />
-        <h4 class="col-span-3 col-start-2 font-text font-bold text-Primary2(White) text-[12px] mt-2 mb-5 pb-5 border-b-[3px] border-Secondary1(Gold)">
-          {{ item.title }}
-        </h4>
+        <div class="col-span-3 col-start-2 mb-5 pb-5 border-b-[3px] border-Secondary1(Gold) font-text">
+          <h4 class="font-bold text-[14px] text-Primary2(White) mt-2">
+            {{ item.title }}
+          </h4>
+          <p class="text-[11px] text-Gray1" v-if="item.authorPromise">{{ item.author }}</p>
+        </div>
+        
       </template>
+
       <template v-else-if="item.type === 'book'">
         <img class="col-span-1 w-full mb-5 pb-5" v-if="item.thumbnail" :src="item.thumbnail" :alt="item.title" />
-        <h4 class="col-span-3 col-start-2 font-text font-bold text-Primary2(White) text-[12px] mt-2 mb-5 pb-5 border-b-[3px] border-Secondary1(Gold)">
-          {{ item.title }}
-        </h4>
+        <div class="col-span-3 col-start-2 mb-5 pb-5 border-b-[3px] border-Secondary1(Gold) font-text">
+          <h4 class="font-bold text-[14px] text-Primary2(White) mt-2">
+            {{ item.title }}
+          </h4>
+          <p class="text-[11px] text-Gray1">{{ item.authors }}</p>
+          <p class="italic text-[10px] text-Secondary2(Beige)">{{ item.genre }}</p>
+        </div>
+        
       </template>
+
       <template v-else-if="item.type === 'music'">
         <img class="col-span-1 w-full mb-5 pb-5" :src="item.artworkUrl100" :alt="item.trackName" />
-      <h4 class="col-span-3 col-start-2 font-text font-bold text-Primary2(White) text-[12px] mt-2 mb-5 pb-5 border-b-[3px] border-Secondary1(Gold)">
-        {{ item.trackName }}
-      </h4>
+        <div class="col-span-3 col-start-2 mb-5 pb-5 border-b-[3px] border-Secondary1(Gold) font-text">
+          <h4 class="font-bold text-[14px] text-Primary2(White) mt-2">
+            {{ item.trackName }}
+          </h4>
+          <p class="text-[11px] text-Gray1">{{ item.authors }}</p>
+          <p class="italic text-[10px] text-Secondary2(Beige)">{{ item.genre }}</p>
+        </div>
+      
     </template>
   </div>
 </main></template>
