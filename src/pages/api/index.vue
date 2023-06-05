@@ -1,28 +1,24 @@
 <template>
   <main>
-    <p>
-      Test API
-    </p>
+    <p>Test API</p>
     <label for="search">Barre de recherche:</label>
-    <input type="text" id="search" v-model="search" /><button @click="fetchFilms">OK</button>
-    <ul>
-      <li v-for="film in films" :key="film.id">
-        <img v-if="film.i" :src="film.i.imageUrl" :alt="film.l" />
-        <p>{{ film.l }}</p>
-      </li>
-    </ul>
-    <ul>
-      <li v-for="book in books" :key="book.id">
-        <img v-if="book.thumbnail" :src="book.thumbnail" :alt="book.title" />
-        <p>{{ book.title }}</p>
-      </li>
-    </ul>
-    <ul>
-      <li v-for="track in tracks" :key="track.id">
-        <img v-if="track.album.images.length > 0" :src="track.album.images[0].url" :alt="track.name" />
-        <p>{{ track.name }}</p>
-      </li>
-    </ul>
+    <input type="text" id="search" v-model="search" />
+    <button @click="fetchData">OK</button>
+
+    <div v-for="(item, index) in combinedResults" :key="index">
+      <template v-if="item.type === 'film'">
+        <img v-if="item.imageUrl" :src="item.imageUrl" :alt="item.title" />
+        <p>{{ item.title }}</p>
+      </template>
+      <template v-else-if="item.type === 'book'">
+        <img v-if="item.thumbnail" :src="item.thumbnail" :alt="item.title" />
+        <p>{{ item.title }}</p>
+      </template>
+      <template v-else-if="item.type === 'music'">
+        <img :src="item.artworkUrl100" :alt="item.trackName" />
+        <h4>{{ item.trackName }}</h4>
+      </template>
+    </div>
   </main>
 </template>
 
@@ -33,16 +29,21 @@ export default {
       films: [],
       books: [],
       tracks: [],
-      search: 'Ready',
-      clientId: '14d536499af34c37b295c11c199652b0'
+      search: '',
+      clientId: '14d536499af34c37b295c11c199652b0',
+      combinedResults: []
     };
   },
   mounted() {
-    this.fetchFilms();
-    this.fetchBooks();
-    this.fetchTracks();
+    this.fetchData();
   },
   methods: {
+    async fetchData() {
+      await this.fetchFilms();
+      await this.fetchBooks();
+      await this.fetchTracks();
+      this.combineResults();
+    },
     async fetchFilms() {
       const url = `https://online-movie-database.p.rapidapi.com/auto-complete?q=${this.search}`;
       const options = {
@@ -56,7 +57,11 @@ export default {
       try {
         const response = await fetch(url, options);
         const result = await response.json();
-        this.films = result.d;
+        this.films = result.d.map(item => ({
+          title: item.l,
+          type: 'film',
+          imageUrl: item.i && item.i.imageUrl ? item.i.imageUrl : ''
+        }));
       } catch (error) {
         console.error(error);
       }
@@ -69,37 +74,56 @@ export default {
         this.books = result.items.map(item => ({
           id: item.id,
           title: item.volumeInfo.title,
-          thumbnail: item.volumeInfo.imageLinks ? item.volumeInfo.imageLinks.thumbnail : ''
+          thumbnail: item.volumeInfo.imageLinks ? item.volumeInfo.imageLinks.thumbnail : '',
+          type: 'book'
         }));
       } catch (error) {
         console.error(error);
       }
     },
     async fetchTracks() {
-      const apiUrl = `https://api.spotify.com/v1/search?type=track&q=${this.search}`;
-
+      const url = `https://itunes.apple.com/search?term=${this.search}`;
       try {
-        const response = await fetch(apiUrl, {
-          headers: {
-            'Authorization': `Bearer ${this.clientId}`
-          }
-        });
-
-        if (response.ok) {
-          const data = await response.json();
-          const tracks = data.tracks.items;
-
-          this.tracks = tracks.map(track => ({
-            id: track.id,
-            name: track.name,
-            album: track.album
-          }));
-        } else {
-          console.error('Error:', response.status);
-        }
+        const response = await fetch(url);
+        const data = await response.json();
+        this.tracks = data.results.slice(0, 10).map(item => ({
+          trackId: item.trackId,
+          artworkUrl100: item.artworkUrl100,
+          trackName: item.trackName,
+          type: 'music'
+        }));
       } catch (error) {
-        console.error(error);
+        console.error('Request failed:', error);
       }
+    },
+    combineResults() {
+      const combined = [];
+      let filmIndex = 0;
+      let bookIndex = 0;
+      let trackIndex = 0;
+
+      while (
+        filmIndex < this.films.length ||
+        bookIndex < this.books.length ||
+        trackIndex < this.tracks.length
+      ) {
+        if (filmIndex < this.films.length) {
+          combined.push(this.films[filmIndex]);
+          filmIndex++;
+        }
+
+        if (bookIndex < this.books.length) {
+          combined.push(this.books[bookIndex]);
+          bookIndex++;
+        }
+
+        if (trackIndex < this.tracks.length) {
+          combined.push(this.tracks[trackIndex]);
+          trackIndex++;
+        }
+      }
+
+      this.combinedResults = combined;
     }
   }
 };

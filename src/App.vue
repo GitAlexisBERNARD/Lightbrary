@@ -2,7 +2,6 @@
   import { RouterLink, RouterView } from 'vue-router'
   import { Suspense } from 'vue'
   import HeaderPage from '@/components/HeaderPage.vue'
-  import FooterPage from '@FooterPage.vue';
   const connected = false; 
 </script>
 <template>
@@ -28,6 +27,8 @@
   </div>
   <RouterLink to="/api">API</RouterLink>
   <br />
+  <RouterLink to="/inscriptionSearch">API</RouterLink>
+  <br />
   <RouterLink to="/connexion">Connexion</RouterLink>
   <br />
   <RouterLink to="/dashboard">Tableau de bord</RouterLink>
@@ -38,6 +39,5 @@
     <!-- Affiche la page -->
     <RouterView />
   </main>
-    <FooterPage />
   <RouterLink to="/contact">Contact</RouterLink>
 </template>
