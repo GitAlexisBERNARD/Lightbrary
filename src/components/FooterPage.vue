@@ -23,11 +23,7 @@
                     </div>
                     
                     <div class="ml-7 pt-6">
-                        <button  
-                        @click="showOverlay = true"> 
-                            <RouterLink to="contact">Contact</RouterLink>
-                        </button>
-
+                        <RouterLink to="contact">Contact</RouterLink>
                     </div>
 
                     <div class="text-center pt-6">
