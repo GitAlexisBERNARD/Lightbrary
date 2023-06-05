@@ -4,9 +4,8 @@ import Recherche from '@/components/Recherche.vue';
 </script>
 
 <template>
-    <h1 class="m-48">Test</h1>
     <main class="bg-Primary1(Black) pt-10">
-        <div class="grille_mobile lg:grille_desktop">
+        <div>
             <Recherche/>
         </div>
 
@@ -23,19 +22,23 @@ import Recherche from '@/components/Recherche.vue';
 
         <div class="flex-none">
             <div class="px-5 font-text text-Primary2(White) text-[16px] flex justify-between gap-6 lg:w-[451px] lg:text-[24px] py-5">
-                <RouterLink to="/serie">
-                    Film
-                </RouterLink>
-                <RouterLink to="">
-                    Série
+                <RouterLink to="/film-serie">
+                    Film - Série
                 </RouterLink>
                 <p class="text-Secondary1(Gold) border-b-[3px]">Livre</p>
-                <RouterLink to="">
+                <RouterLink to="/musique">
                     Musique
                 </RouterLink>
             </div>
             <div class="grille_mobile lg:grille_desktop">
-
+                <HomeCard class="" />
+                <HomeCard class="" />
+                <HomeCard class="" />
+                <HomeCard class="" />
+                <HomeCard class="" />
+                <HomeCard class="" />
+                <HomeCard class="" />
+                <HomeCard class="" />
             </div>
         </div>
     </main>

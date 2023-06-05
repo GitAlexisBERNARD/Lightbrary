@@ -1,14 +1,15 @@
 <script setup lang="ts">
   import { RouterLink, RouterView } from 'vue-router'
   import HeaderPage from '@/components/HeaderPage.vue'
-  import HomePageFilm from '@/pages/film/index.vue'
 </script>
 
 <template>
   <HeaderPage />
   <RouterLink to="/about">About</RouterLink>
   <main>
-    <HomePageFilm/>
+    <RouterLink to="/film-serie">
+      Accueil film-série
+    </RouterLink>
     <!-- Suspense sera utile pour charger les données (await) -->
     <Suspense>
       <!-- Affiche la page -->
