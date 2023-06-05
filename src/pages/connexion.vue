@@ -42,8 +42,8 @@ export default {
 </script>
 
 <template>
-  <main>
-    <header class="lg:grille_connexion bg-Primary1(Black)">
+  <main class="bg-Primary1(Black) pb-10">
+    <header class="lg:grille_connexion">
       <div class="col-span-4 col-start-5 flex flex-col">
         <label class="font-text font-medium text-Secondary1(Gold) text-[24px] pb-3" for="login">Email</label>
         <input class="bg-Primary1(Black) py-2 border border-Secondary2(Beige) font-text text-Secondary1(Gold) placeholder:text-Gray1 text-[16px] rounded-[8px] px-4" type="email" id="login" placeholder="exemple@gmail.com"/>
