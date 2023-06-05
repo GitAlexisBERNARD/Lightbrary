@@ -1,6 +1,6 @@
 <template>
-    <div class="ml-12 z-10">
-        <h1 class="text-Primary2(White) pt-12 pb-10">Contactez nous</h1>
+    <div class="ml-12 z-10 bg-Primary1(Black)">
+        <div class="text-Primary2(White) pt-12 pb-10 text-lg">Contactez nous</div>
         <h6 class="text-Secondary1(Gold)">Email</h6>
         <div class="mt-2">
             <input type="text" placeholder="exemple@gmail.com" class="px-3 py-2 border border-Secondary1(Gold)
