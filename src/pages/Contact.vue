@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full h-full p-12 z-10 bg-Primary1(Black) lg:hidden">
+  <div class="fixed w-full h-full p-12 z-10 bg-Primary1(Black) lg:hidden">
     <div class="text-Primary2(White) pt-12 pb-10 text-lg flex justify-between">
       Contactez nous
     </div>
