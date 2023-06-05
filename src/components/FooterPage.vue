@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import IconLogo from '@/components/icons/SVG_blanc_1.vue'
-import IconFacebook from '@/components/icons/facebook.vue'
-import IconInstagram from '@/components/icons/instagram.vue'
-import IconTwitter from '@/components/icons/twitter.vue'
-import IconMail from '@/components/icons/mail.vue'
-import { RouterLink } from 'vue-router'
+    import IconLogo from '@/components/icons/SVG_blanc_1.vue'
+    import IconFacebook from '@/components/icons/facebook.vue'
+    import IconInstagram from '@/components/icons/instagram.vue'
+    import IconTwitter from '@/components/icons/twitter.vue'
+    import IconMail from '@/components/icons/mail.vue'
+    import { RouterLink } from 'vue-router'
 </script>
 
 <template>
