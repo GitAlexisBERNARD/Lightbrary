@@ -1,19 +1,17 @@
 <script setup lang="ts">
 import IconX from '@/components/icons/x.vue'
 import { ref } from 'vue'
-const contactIsOpen = ref(false)
+const closeContact = ref(false)
 </script>
 
 <template>
-  <div class="ml-12 z-10 bg-Primary1(Black)">
-    <div class="text-Primary2(White) pt-12 pb-10 text-lg">
+  <div class="fixed w-full h-full p-12 z-10 bg-Primary1(Black)">
+    <div class="text-Primary2(White) pt-12 pb-10 text-lg flex justify-between">
       Contactez nous
-      <section>
-        <button @click="contactIsOpen = false">
+        <button 
+        @click="closeContact= false">
             <IconX />
         </button>
-        <!--faire en sorte que la page contact se ferme quand on clique sur la croix-->
-      </section>
     </div>
     <div class="text-Secondary1(Gold)">Email</div>
     <div class="mt-2">
