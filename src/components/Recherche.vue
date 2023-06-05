@@ -41,6 +41,25 @@ export default {
         console.error(error);
       }
     },
+    async fetchAuthor(id) {
+      const apiKey = this.tmdbApiKey;
+      const url = `https://api.themoviedb.org/3/movie/${id}/credits?api_key=${apiKey}`;
+      try {
+        const response = await fetch(url);
+        const result = await response.json();
+        console.log(result);
+        const crew = result.crew;
+        const director = crew.find(member => member.job === 'Director');
+        if (director) {
+          return director.name;
+        } else {
+          return 'Auteur inconnu';
+        }
+      } catch (error) {
+        console.error(error);
+        return 'Erreur lors de la récupération de l\'auteur';
+      }
+    },
     async fetchBooks() {
       const url = `https://www.googleapis.com/books/v1/volumes?q=${this.search}`;
       try {
@@ -49,6 +68,8 @@ export default {
         this.books = result.items.map((item) => ({
           id: item.id,
           title: item.volumeInfo.title,
+          authors: item.volumeInfo.authors[0],
+          genre: item.volumeInfo.categories[0],
           thumbnail: item.volumeInfo.imageLinks ? item.volumeInfo.imageLinks.thumbnail : '',
           type: 'book',
         }));
@@ -65,6 +86,8 @@ export default {
           trackId: item.trackId,
           artworkUrl100: item.artworkUrl100,
           trackName: item.trackName,
+          genre: item.primaryGenreName,
+          authors: item.artistName,
           type: 'music',
         }));
       } catch (error) {
@@ -72,34 +95,44 @@ export default {
       }
     },
     combineResults() {
-      const combined = [];
-      let filmIndex = 0;
-      let bookIndex = 0;
-      let trackIndex = 0;
+  const combined = [];
+  let filmIndex = 0;
+  let bookIndex = 0;
+  let trackIndex = 0;
 
-      while (
-        filmIndex < this.films.length ||
-        bookIndex < this.books.length ||
-        trackIndex < this.tracks.length
-      ) {
-        if (filmIndex < this.films.length) {
-          combined.push(this.films[filmIndex]);
-          filmIndex++;
-        }
+  while (
+    filmIndex < this.films.length ||
+    bookIndex < this.books.length ||
+    trackIndex < this.tracks.length
+  ) {
+    if (filmIndex < this.films.length) {
+      const film = this.films[filmIndex];
+      film.authorPromise = this.fetchAuthor(film.id)
+        .then(author => {
+          film.author = author;
+        })
+        .catch(error => {
+          film.author = 'Erreur lors de la récupération de l\'auteur';
+          console.error(error);
+        });
+      combined.push(film);
+      filmIndex++;
+    }
 
-        if (bookIndex < this.books.length) {
-          combined.push(this.books[bookIndex]);
-          bookIndex++;
-        }
+    if (bookIndex < this.books.length) {
+      combined.push(this.books[bookIndex]);
+      bookIndex++;
+    }
 
-        if (trackIndex < this.tracks.length) {
-          combined.push(this.tracks[trackIndex]);
-          trackIndex++;
-        }
-      }
+    if (trackIndex < this.tracks.length) {
+      combined.push(this.tracks[trackIndex]);
+      trackIndex++;
+    }
+  }
 
-      this.combinedResults = combined;
-    },
+  this.combinedResults = combined;
+},
+
   },
 };
 </script>
