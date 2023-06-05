@@ -5,11 +5,10 @@ const closeContact = ref(true)
 </script>
 
 <template>
-  <div v-if="closeContact" class="fixed w-full h-full p-12 z-10 bg-Primary1(Black) lg:hidden">
+  <div v-if="closeContact" class="w-full h-full p-12 z-10 bg-Primary1(Black) lg:hidden">
     <div class="text-Primary2(White) pt-12 pb-10 text-lg flex justify-between">
       Contactez nous
-      <button
-      @click="closeContact = false">
+      <button @click="closeContact = false">
         <IconX />
       </button>
     </div>
