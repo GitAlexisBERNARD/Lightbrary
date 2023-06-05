@@ -110,4 +110,76 @@ export default {
     }
   }
 };
+const data = {
+  "Film": {
+    "id": [
+      "333339"
+    ],
+    "genre": [
+      "Science Fiction",
+      "Adventure",
+      "Action"
+    ]
+  },
+  "Livre": {
+    "id": [
+      "LH7ziruT7ZQC",
+      "kRctEAAAQBAJ",
+      "VugRtAEACAAJ",
+      "XLVJDwAAQBAJ"
+    ],
+    "genre": [
+      "Fiction / Science Fiction / General",
+      "Fiction / Science Fiction / General",
+      "Fiction / Science Fiction / Action",
+      "Adventure",
+      "Fiction / Literary",
+      "Fiction / General"
+    ]
+  },
+  "Musique": {
+    "id": [
+      "1354248992",
+      "1454446626",
+      "1454446624",
+      "1412214020",
+      "1454446630"
+    ],
+    "genre": [
+      "Action",
+      "Adventure",
+      "Rock",
+      "R&B/Soul",
+      "Dance",
+      "Rock"
+    ]
+  },
+  "GenrePref": {
+    "genre": [
+      "Science Fiction",
+      "Adventure"
+    ]
+  }
+};
+
+let genreCounts = {};
+
+for (let category in data) {
+
+  data[category].genre.forEach(genre => {
+
+    genreCounts[genre] = genreCounts[genre] ? genreCounts[genre] + 1 : 1;
+  });
+}
+
+
+let genres = Object.keys(genreCounts).map(genre => [genre, genreCounts[genre]]);
+
+
+genres.sort((a, b) => b[1] - a[1]);
+
+let topFiveGenres = genres.slice(0, 5);
+
+console.log(topFiveGenres);
+
 </script>
