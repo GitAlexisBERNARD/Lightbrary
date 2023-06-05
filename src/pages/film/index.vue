@@ -5,7 +5,7 @@ import Recherche from '@/components/Recherche.vue';
 
 <template>
     <main class="bg-Primary1(Black) pt-10">
-        <div class="grille_mobile lg:grille_desktop">
+        <div>
             <Recherche/>
         </div>
 
