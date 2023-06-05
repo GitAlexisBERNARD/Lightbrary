@@ -94,7 +94,6 @@ export default {
 
         transformedGenres[type].id.push(id);
 
-        // Ajouter chaque genre séparément
         genreData.forEach(genreItem => {
           const genre = genreItem.name || genreItem;
 

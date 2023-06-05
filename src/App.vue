@@ -34,6 +34,8 @@
   <RouterLink to="/dashboard">Tableau de bord</RouterLink>
   <br />
   <RouterLink to="/inscription">Inscription</RouterLink>
+  <br />
+  <RouterLink to="/inscriptionGenre">inscriptionGenre</RouterLink>
   <main>
     <!-- Suspense sera utile pour charger les données (await) -->
     <!-- Affiche la page -->
