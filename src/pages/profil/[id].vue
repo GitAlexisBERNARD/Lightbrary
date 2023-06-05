@@ -18,7 +18,7 @@ import HomeCard from '@/components/HomeCard.vue'
 
                 <div class="col-span-4 flex justify-between lg:hidden">
                     <button class="bg-Secondary1(Gold) rounded-[8px] py-3 px-5">
-                        <RouterLink class="font-text font-medium" to="">
+                        <RouterLink class="font-text font-medium" to="/profil/modifs">
                             Modifier profil
                         </RouterLink>
                     </button>
