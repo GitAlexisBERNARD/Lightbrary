@@ -25,7 +25,7 @@
         </template>
       </div>
       <br>
-      <button @click="saveToPocketBase">Inscription</button>
+      <button @click="saveToPocketBase()">Inscription</button>
     </main>
   </template>
   
@@ -169,11 +169,9 @@
           Musique: this.UserMusique,
         };
         const jsonData = JSON.stringify(userData);
-        console.log(jsonData);
+        const userInfo = pb.authStore.model.id.toString();
         try {
-          await pb.collection('users').create({
-            data: jsonData,
-          });
+          await pb.collection('users').update(userInfo,{'data': `${jsonData}`});
         } catch (error) {
           console.error(error);
         }
