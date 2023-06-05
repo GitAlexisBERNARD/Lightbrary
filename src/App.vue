@@ -1,8 +1,9 @@
 <script setup lang="ts">
   import { RouterLink, RouterView } from 'vue-router'
   import HeaderPage from '@/components/HeaderPage.vue'
+  import user from './components/icons/user.vue';
 
-  const connected = false; 
+  const connected = true; 
 </script>
 
 <template>
@@ -19,6 +20,9 @@
             </li>
           </ul>
         </nav>
+        <RouterLink to="/" class="lg:hidden">
+            <user/>
+        </RouterLink>
       </template>
       <template v-else #login>
         <h1 class="text-Primary2(White)">Connecté</h1>

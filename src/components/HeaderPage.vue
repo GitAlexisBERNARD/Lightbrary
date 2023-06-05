@@ -85,9 +85,6 @@
         </div>
 
         <div class="flex items-center">
-            <RouterLink to="/" class="lg:hidden">
-                <UserIcon/>
-            </RouterLink>
             <slot name="login"></slot>
             <slot name="connected"></slot>
         </div>
