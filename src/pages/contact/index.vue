@@ -1,17 +1,17 @@
 <script setup lang="ts">
 import IconX from '@/components/icons/x.vue'
 import { ref } from 'vue'
-const closeContact = ref(false)
+const closeContact = ref(true)
 </script>
 
 <template>
-  <div class="fixed w-full h-full p-12 z-10 bg-Primary1(Black)">
+  <div v-if="closeContact" class="fixed w-full h-full p-12 z-10 bg-Primary1(Black) lg:hidden">
     <div class="text-Primary2(White) pt-12 pb-10 text-lg flex justify-between">
       Contactez nous
-        <button 
-        @click="closeContact= false">
-            <IconX />
-        </button>
+      <button
+      @click="closeContact = false">
+        <IconX />
+      </button>
     </div>
     <div class="text-Secondary1(Gold)">Email</div>
     <div class="mt-2">
