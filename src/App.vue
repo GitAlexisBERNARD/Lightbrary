@@ -1,9 +1,13 @@
 <script setup lang="ts">
+import { ref } from 'vue'
   import { RouterLink, RouterView } from 'vue-router'
   import HeaderPage from '@/components/HeaderPage.vue'
-  import user from './components/icons/user.vue';
+  import user from '@/components/icons/user.vue';
+  import Polygon from '@/components/icons/Polygon_down.vue'
 
   const connected = true; 
+
+  const profil= ref(false)
 </script>
 
 <template>
@@ -25,7 +29,30 @@
         </RouterLink>
       </template>
       <template v-else #login>
-        <h1 class="text-Primary2(White)">Connecté</h1>
+        <RouterLink class="lg:hidden" to="">
+          <img class="w-[40px] rounded-[9999px] border border-Primary2(White)" src="/img/Test_Profil.webp" alt="Photo de profil">
+        </RouterLink>
+
+        <div class="hidden lg:flex flex-col gap-3">
+          <button class="flex items-center gap-3 font-text font-medium text-[14px] text-Secondary1(Gold)" @click="profil=!profil">
+            krys_film
+            <Polygon class="fill-Secondary1(Gold) rotate-90" :class="{'rotate-0':profil}"/>
+            <img class="w-[40px]" src="/img/Test_Profil.webp" alt="Photo de profil">
+          </button>
+          <div class="hidden fixed mt-10 p-2 bg-Primary1(Black)" :class="{'!block' :profil}">
+            <nav>
+              <ul class="font-text font-medium text-[14px] text-Primary2(White)">
+                <li class="pb-1"><RouterLink to="">Ma liste</RouterLink></li>
+                <li class="pb-1"><RouterLink to="">Profil</RouterLink></li>
+                <li class="pb-1"><RouterLink to="">Modifier mon profil</RouterLink></li>
+                <li><RouterLink to="">Déconnexion</RouterLink></li>
+              </ul>
+            </nav>
+          </div>
+          
+
+          
+        </div>
       </template>
     </HeaderPage>
     <h1>Lightbrary</h1>
