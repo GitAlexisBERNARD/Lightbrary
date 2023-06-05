@@ -112,16 +112,15 @@ export default {
     <main>
         <header class="grille_mobile lg:grille_desktop relative">
             <div class="col-span-4 lg:col-span-6 lg:col-start-4 flex items-center border border-Secondary1(Gold) rounded-[20px] gap-5 px-3">
-                <img class="w-6 h-6" src="../../public/img/icon_search.webp" alt="Icone rechercher">
+                <img class="w-6 h-6" src="/img/icon_search.webp" alt="Icone rechercher">
                 <input class="w-full h-14 bg-Primary1(Black) font-text text-Secondary1(Gold)" type="text" id="search" v-model="search" placeholder="Recherche un film, une série..." @keyup.enter="fetchData"/>
                 <!-- <button class="font-text font-bold text-Primary2(White)" @click="fetchData">OK</button>  -->
             </div>
         </header>
 
-        <!-- <button class="text-Primary2(White)" @click="rechargerPage">
-            <img src="../../public/img/arrow-left.webp" alt="Icone retour" >
-            <img src="../../public/img/icon_search.webp" alt="Icone retour">
-        </button> -->
+        <button class="text-Primary2(White)" @click="rechargerPage">
+          Retour
+        </button>
 
         <div class="grille_mobile" v-for="(item, index) in combinedResults" :key="index">
             <template v-if="item.type === 'film'">
