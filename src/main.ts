@@ -5,6 +5,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import { createApp } from "vue"
 import { createHead } from "@vueuse/head"
 import '@/css/style.css'
+import V3ScrollLock from 'v3-scroll-lock'
 
 const app = createApp(App)
 app.use(
@@ -16,5 +17,7 @@ app.use(
 const head = createHead()
 
 app.use(head)
+
+app.use(V3ScrollLock, {})
 
 app.mount("#app")
