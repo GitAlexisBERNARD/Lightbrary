@@ -6,7 +6,7 @@ import HomeCard from '@/components/HomeCard.vue';
 </script>
 
 <template>
-    <main class=" bg-Primary1(Black) pb-12">
+    <main class="bg-Primary1(Black) pb-12 absolute z-10 -mt-24 w-full lg:mt-0">
         <section>
             <header class="grille_mobile lg:grille_profil pt-7">
                 <img class="col-span-2 col-start-2 border border-Primary2(White) rounded-[20px] lg:col-span-3 lg:col-start-1" src="/img/Test_Image_Page.webp" alt="Test Images">
