@@ -10,6 +10,10 @@
     <RouterLink to="/film-serie">
       Accueil film-série
     </RouterLink>
+
+    <RouterLink to="/creation-profil-genres">
+      Création profil utilisateur
+    </RouterLink>
     <!-- Suspense sera utile pour charger les données (await) -->
     <Suspense>
       <!-- Affiche la page -->
