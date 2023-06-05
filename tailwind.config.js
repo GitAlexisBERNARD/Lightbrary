@@ -24,8 +24,15 @@ export default {
       "2xl": "2.25rem"
      },
     fontFamily: {
-      "ubuntu": "Ubuntu"
-     },
+      "text": "Ubuntu",
+    },
+    fontSize: {
+      "menu":"14px",
+      "connexion":"16px",
+    },
+    borderRadius: {
+      "inscription":"101px",
+    },
     extend: {},
   },
   plugins: [],
