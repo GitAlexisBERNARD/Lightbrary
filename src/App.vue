@@ -39,5 +39,4 @@
     <!-- Affiche la page -->
     <RouterView />
   </main>
-  <RouterLink to="/contact">Contact</RouterLink>
 </template>

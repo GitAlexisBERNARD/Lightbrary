@@ -56,7 +56,6 @@ export default {
           passwordConfirm: confirmPassword,
           name: document.getElementById('name').value,
         });
-        console.log("pourquoi ça ne marche pas ?");
         router.push('/dashboard');
       } catch (error) {
         console.error("Erreur lors de l'inscription :", error);

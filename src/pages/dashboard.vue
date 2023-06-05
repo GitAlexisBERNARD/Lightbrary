@@ -7,7 +7,8 @@
 <template>
   <div>
     <h1>Bienvenue sur le tableau de bord</h1>
-    <p v-if="userInfo">Vous êtes connecté en tant que {{ userInfo.name }}</p>
+    <p v-if="userInfo">Vous êtes connecté en tant que {{ userInfo.username }}</p>
+    <button @click="pb.authStore.clear();">deconnexion</button>
   </div>
 </template>
 <script lang="ts">
@@ -30,7 +31,6 @@ export default {
   mounted() {
     const userInfo = pb.authStore.model;
     console.log(userInfo);
-    console.log(userInfo.name);
     this.userInfo = userInfo;
   }
 };

@@ -30,8 +30,8 @@ export default {
       books: [],
       tracks: [],
       search: '',
-      clientId: '14d536499af34c37b295c11c199652b0',
-      combinedResults: []
+      combinedResults: [],
+      tmdbApiKey: 'ab3ffc07e2a06a3122219298b0ba013b'
     };
   },
   mounted() {
@@ -45,23 +45,19 @@ export default {
       this.combineResults();
     },
     async fetchFilms() {
-      const url = `https://online-movie-database.p.rapidapi.com/auto-complete?q=${this.search}`;
-      const options = {
-        method: 'GET',
-        headers: {
-          'X-RapidAPI-Key': 'f039a0d17amsh8acc9535f5b5493p14861ejsn58ca1ebc290f',
-          'X-RapidAPI-Host': 'online-movie-database.p.rapidapi.com'
-        }
-      };
+      const apiKey = this.tmdbApiKey;
+      const url = `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${this.search}`;
 
       try {
-        const response = await fetch(url, options);
+        const response = await fetch(url);
         const result = await response.json();
-        this.films = result.d.map(item => ({
-          title: item.l,
+        this.films = result.results.map((item) => ({
+          id: item.id,
+          title: item.title,
           type: 'film',
-          imageUrl: item.i && item.i.imageUrl ? item.i.imageUrl : ''
+          imageUrl: `https://image.tmdb.org/t/p/w500${item.poster_path}`,
         }));
+        console.log(this.films)
       } catch (error) {
         console.error(error);
       }
@@ -71,11 +67,11 @@ export default {
       try {
         const response = await fetch(url);
         const result = await response.json();
-        this.books = result.items.map(item => ({
+        this.books = result.items.map((item) => ({
           id: item.id,
           title: item.volumeInfo.title,
           thumbnail: item.volumeInfo.imageLinks ? item.volumeInfo.imageLinks.thumbnail : '',
-          type: 'book'
+          type: 'book',
         }));
       } catch (error) {
         console.error(error);
@@ -86,11 +82,11 @@ export default {
       try {
         const response = await fetch(url);
         const data = await response.json();
-        this.tracks = data.results.slice(0, 10).map(item => ({
+        this.tracks = data.results.slice(0, 10).map((item) => ({
           trackId: item.trackId,
           artworkUrl100: item.artworkUrl100,
           trackName: item.trackName,
-          type: 'music'
+          type: 'music',
         }));
       } catch (error) {
         console.error('Request failed:', error);
@@ -124,7 +120,7 @@ export default {
       }
 
       this.combinedResults = combined;
-    }
-  }
+    },
+  },
 };
 </script>
