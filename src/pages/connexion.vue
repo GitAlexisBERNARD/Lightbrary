@@ -56,7 +56,11 @@ export default {
       </div>
 
       <div class="row-start-3 col-span-4 lg:col-start-5 flex justify-between">
-        <p class="font-text text-Primary2(White) text-[16px]">Se souvenir de moi</p>
+        <div class="flex gap-1">
+          <input type="checkbox" id="checkbox" v-model="checked">
+          <p class="font-text text-Primary2(White) text-[16px]">Se souvenir de moi</p>
+        </div>
+        
         <button class="font-text text-Primary2(White) text-[16px] underline" v-on:click="reset">Mot de passe oublié ?</button>
       </div>
 
