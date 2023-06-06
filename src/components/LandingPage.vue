@@ -197,7 +197,7 @@
                 
                 <div class="grille_mobile lg:grille_desktop mt-10">
                     <img class="col-span-4 lg:col-start-5" src="/img/tv_2.webp" alt="Icone TV avec textes">
-                    <button class="col-span-2 col-start-2 lg:col-start-1 -mt-10 font-text font-medium text-Primary1(Black) bg-Secondary1(Gold) py-3 px-5 rounded-[8px] lg:col-start-6">
+                    <button class="col-span-2 col-start-2 -mt-10 font-text font-medium text-Primary1(Black) bg-Secondary1(Gold) py-3 px-5 rounded-[8px] lg:col-start-6">
                         <RouterLink 
                             to=""
                         >
