@@ -33,6 +33,7 @@ export default {
     const genres = await this.getGenres(pb.authStore.model.data);
     this.updateGenre(genres);
   },
+  
   methods: {
     async updateGenre(json) {
       const userInfo = pb.authStore.model.id.toString();

@@ -38,6 +38,8 @@
   <RouterLink to="/inscriptionGenre">inscriptionGenre</RouterLink>
   <br />
   <RouterLink to="/statistique">UtilisateurPage</RouterLink>
+  <br />
+  <RouterLink to="/pageitem">pageunitem</RouterLink>
   <main>
     <!-- Suspense sera utile pour charger les données (await) -->
     <!-- Affiche la page -->
