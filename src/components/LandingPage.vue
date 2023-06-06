@@ -3,6 +3,7 @@
     import IconLivre from '@/components/icons/book-open.vue'
     import IconMusique from '@/components/icons/music.vue'
     import IconTv from '@/components/icons/tv.vue'
+    import { RouterView } from 'vue'
 </script>
 
 <template>
