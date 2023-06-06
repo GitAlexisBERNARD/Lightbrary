@@ -10,19 +10,29 @@
         <section>
             <header>
                 <div class="grille_mobile relative grid h-screen grid-rows-[10fr_1fr]">
-                    <div class="col-span-4 self-center font-text rounded-[10px] py-3 mt-14">
-                        <p class=" f">Vous avez du temps libre et vous ne savez pas quoi faire ?</p>
-                        <h1 class="text-[64px]">Lightbray</h1>
-                        <h2>, mettez en lumière votre Watchlist</h2>
-                        <p>Films, séries, musiques et livres. Trouvez tous les médias qui vous correspondent !</p>
+                    <div class="col-span-4 self-center font-text mt-14">
+                        <p class="font-light text-Primary2(White) text-[12px] pb-10">Vous avez du temps libre et vous ne savez pas quoi faire ?</p>
+                        <h1 class="font-bold text-Secondary1(Gold) text-[36px]">Lightbray,</h1>
+                        <h1 class="font-bold text-Primary2(White) text-[36px] pb-10">mettez en lumière votre Watchlist</h1>
+                        <p class="font-medium text-Primary2(White) text-[14px]">Films, séries, musiques et livres. Trouvez tous les médias qui vous correspondent !</p>
                     </div>
 
                     <img src="/img/Banniere.webp" alt="Photo Fondation Cartier" class="absolute inset-0 object-cover w-full h-full z-[-1]" />
 
-                    <button class="col-span-2">
+                    <div class="col-span-2 col-start-2 flex justify-between">
+                        <IconLivre class="w-[50px] h-[50px] stroke-[1px] stroke-Primary2(White)"/>
+                        <IconMusique class="w-[50px] h-[50px] stroke-[1px] stroke-Primary2(White)"/>
+                    </div>
+
+                    <div class="col-span-4 flex justify-between">
+                        <IconFilm class="w-[50px] h-[50px] stroke-[1px] stroke-Primary2(White)"/>
+                        <IconTv class="w-[50px] h-[50px] stroke-[1px] stroke-Primary2(White)"/>
+                    </div>
+                    
+                    <button class="col-span-2 col-start-2 pt-10">
                         <RouterLink 
                             to="/exposition" 
-                            class="flex items-center justify-between bg-Footer hover:bg-Tonique_1 h-[54px] relative gap-2 px-2.5 py-[9px] mt-5 font-button text-Dominante text-[12px] uppercase"
+                            class="font-text font-medium text-Primary1(Black) bg-Secondary1(Gold) py-3 px-5 rounded-[8px]"
                         >
                             En savoir plus
                         </RouterLink>
