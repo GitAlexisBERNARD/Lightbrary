@@ -43,24 +43,42 @@
 
             <article class="bg-Primary1(Black) pb-20">
                 <div>
-                    <h2 class="bg-Secondary1(Gold) font-text font-bold text-Primary2(White) text-[24px] py-2 text-center">Pourquoi choisir Lightbray ?</h2>
+                    <h2 class="bg-Secondary1(Gold) font-text font-bold text-Primary2(White) text-[24px] py-2 text-center lg:hidden">Pourquoi choisir Lightbray ?</h2>
 
-                    <div class="grille_mobile mt-20">
+                    <div class="hidden lg:grille_desktop">
+                        <h2 class="col-span-5 bg-Secondary1(Gold) font-text font-bold text-Primary2(White) text-[24px] py-2 text-center">Pourquoi choisir Lightbray ?</h2>
+                    </div>
+
+                    <div class="hidden lg:grille_desktop mt-20">
+                        <img class="col-span-3 col-start-1 border border-Primary2(White)" src="/img/Affinite.webp" alt="Affiche Ready PLayer One">
+                        <h3 class="col-span-2 col-start-1 text-start font-text font-bold text-Primary2(White) text-[36px]">Affinité</h3>
+                        <p class="col-span-4 row-start-3 text-start font-text text-Primary2(White)">Grâce à notre système de pourcentage d'affinité vous pourrez trouver le film/la série/le livre/la musique qui vous correspond le mieux.</p>
+
+                        <img class="col-span-3 col-start-5 row-start-1 my-auto" src="/img/Diversite.webp" alt="Image diversité">
+                        <h3 class="col-span-2 col-start-5 row-start-2 text-start font-text font-bold text-Primary2(White) text-[36px]">Diversité</h3>
+                        <p class="col-span-4 col-start-5 row-start-3 text-start font-text text-Primary2(White)">Notre site propose un large catalogue comprenant des films, des séries, des livres et même des musiques afin de convenir à toutes les envies.</p>
+
+                        <img class="col-span-3 col-start-9 row-start-1" src="/img/Rapidite.webp" alt="Image page d'accueil de Lightbrary">
+                        <h3 class="col-span-2 col-start-9 row-start-2 text-start font-text font-bold text-Primary2(White) text-[36px]">Rapidité</h3>
+                        <p class="col-span-4 col-start-9 row-start-3 text-start font-text text-Primary2(White)">Sur la page d'accueil de notre site vous pourrez retrouver un top comprenant un film, une série, un livre et une musique avec lesquels vous avez le plus grand pourcentage d'affinité.</p>
+                    </div>
+
+                    <div class="grille_mobile lg:hidden mt-20">
                         <img class="col-span-2 col-start-2 border border-Primary2(White)" src="/img/Affinite.webp" alt="Affiche Ready PLayer One">
-                        <h3 class="col-span-2 col-start-2 text-center font-test font-bold text-Primary2(White) text-[20px]">Affinité</h3>
+                        <h3 class="col-span-2 col-start-2 text-center font-text font-bold text-Primary2(White) text-[20px]">Affinité</h3>
                         <p class="col-span-4 text-center font-text text-Primary2(White)">Grâce à notre système de pourcentage d'affinité vous pourrez trouver le film/la série/le livre/la musique qui vous correspond le mieux.</p>
                     </div>
 
-                    <div class="grille_mobile mt-20">
+                    <div class="grille_mobile lg:hidden mt-20">
                         <img class="col-span-2 col-start-2 mx-auto" src="/img/Diversite.webp" alt="Image diversité">
-                        <h3 class="col-span-2 col-start-2 text-center font-test font-bold text-Primary2(White) text-[20px]">Diversité</h3>
+                        <h3 class="col-span-2 col-start-2 text-center font-text font-bold text-Primary2(White) text-[20px]">Diversité</h3>
                         <p class="col-span-4 text-center font-text text-Primary2(White)">Notre site propose un large catalogue comprenant des films, des séries, des livres et même des musiques afin de convenir à toutes les envies.</p>
                     </div>
 
-                    <div class="grille_mobile mt-20">
+                    <div class="grille_mobile lg:hidden mt-20">
                         <img class="col-span-2 col-start-2" src="/img/Rapidite.webp" alt="Image page d'accueil de Lightbrary">
-                        <h3 class="col-span-2 col-start-2 text-center font-test font-bold text-Primary2(White) text-[20px]">Rapidité</h3>
-                        <p class="col-span-4 text-center font-text text-Primary2(White)">Sur la page d'accueil de notre site vous pourrez retrouver un top comprenant un film, une série, un livre et une musique avec lesquels vous avez le plus grand pourcentage d'affinité. </p>
+                        <h3 class="col-span-2 col-start-2 text-center font-text font-bold text-Primary2(White) text-[20px]">Rapidité</h3>
+                        <p class="col-span-4 text-center font-text text-Primary2(White)">Sur la page d'accueil de notre site vous pourrez retrouver un top comprenant un film, une série, un livre et une musique avec lesquels vous avez le plus grand pourcentage d'affinité.</p>
                     </div> 
                 </div>
 
