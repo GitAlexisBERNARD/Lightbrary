@@ -83,10 +83,14 @@
                 </div>
 
                 <div>
-                    <h2 class="bg-Secondary1(Gold) font-text font-bold text-Primary2(White) text-[24px] py-2 text-center mt-20">Comment ça fonctionne ?</h2>
+                    <h2 class="bg-Secondary1(Gold) font-text font-bold text-Primary2(White) text-[24px] py-2 text-center mt-20 lg:hidden">Comment ça fonctionne ?</h2>
 
-                    <div class="grille_mobile mt-10">
-                        <h3 class="col-span-2 col-start-3 text-center bg-Secondary1(Gold) py-2 font-text font-medium italic uppercase text-Primary2(White) text-[20px]">Inscription</h3>
+                    <div class="hidden lg:grille_desktop mt-20">
+                        <h2 class="col-span-4 bg-Secondary1(Gold) font-text font-bold text-Primary2(White) text-[24px] py-2 text-center">Comment ça fonctionne ?</h2>
+                    </div>
+
+                    <div class="grille_mobile lg:grille_desktop mt-10">
+                        <h3 class="col-span-2 col-start-3 text-center bg-Secondary1(Gold) py-2 font-text font-medium italic uppercase text-Primary2(White) text-[20px] lg:col-start-11 lg:text-[20px]">Inscription</h3>
                         <img class="col-span-2 col-start-2" src="/img/Chapitre_1.webp" alt="Photo page inscription">
                         <p class="col-span-4 text-center font-text text-Primary2(White)">Au moment de s'inscrire sur le site, vous sélectionnez le genre de films/séries/livres/musiques que vous appréciez. Vous sélectionnez également ce que vous avez déjà vu/écouté ou lu.</p>
                     </div>
