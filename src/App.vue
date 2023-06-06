@@ -14,6 +14,10 @@
     <RouterLink to="/creation-profil-genres">
       Création profil utilisateur
     </RouterLink>
+
+    <RouterLink to="/creation-profil-search">
+      Création profil utilisateur search bar
+    </RouterLink>
     <!-- Suspense sera utile pour charger les données (await) -->
     <Suspense>
       <!-- Affiche la page -->
