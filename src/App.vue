@@ -40,6 +40,8 @@
   <RouterLink to="/statistique">UtilisateurPage</RouterLink>
   <br />
   <RouterLink to="/pageitem">pageunitem</RouterLink>
+  <br />
+  <RouterLink to="/modifcaton">modifcaton</RouterLink>
   <main>
     <!-- Suspense sera utile pour charger les données (await) -->
     <!-- Affiche la page -->
