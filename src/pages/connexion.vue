@@ -1,20 +1,20 @@
 <script>
-import { useRouter } from 'vue-router'
-import { RouterLink } from 'vue-router'
+import { useRouter } from 'vue-router';
+import { RouterLink } from 'vue-router';
 import PocketBase from 'pocketbase';
-  
-var pocketbase_ip =''
+
+var pocketbase_ip ='';
 if (process.env.NODE_ENV === 'production') {
-  pocketbase_ip = '193.168.146.150:80'
+  pocketbase_ip = '193.168.146.150:80';
 } else {
-  pocketbase_ip = 'http://127.0.0.1:8090'
+  pocketbase_ip = 'http://127.0.0.1:8090';
 }
-  
+
 const pb = new PocketBase(pocketbase_ip);
-  
+
 export default {
   setup() {
-    const router = useRouter()
+    const router = useRouter();
     return {
       async login() {
         try {
@@ -22,8 +22,11 @@ export default {
             document.getElementById("login").value,
             document.getElementById("passwd").value
           );
-          console.log(pb.authStore.isValid);
-          router.push('/dashboard'); 
+          if (pb.authStore.model.firstconnexion === false) {
+            router.push('/creation-profil-search');
+          } else {
+            router.push('/pageitem'); 
+          }
         } catch (error) {
           document.getElementById("error-message").textContent = "Invalid email or password.";
           console.error("Error during login: ", error);
@@ -36,7 +39,7 @@ export default {
           console.error("Error during password reset: ", error);
         }
       },
-    }
+    };
   }
 };
 </script>

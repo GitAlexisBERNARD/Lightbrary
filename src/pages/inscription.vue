@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 import { useRouter } from 'vue-router';
 import PocketBase from 'pocketbase';
 
@@ -32,8 +32,7 @@ export default {
           passwordConfirm: confirmPassword,
           name: document.getElementById('name').value,
         });
-        console.log("pourquoi ça ne marche pas ?");
-        router.push('/creation-profil-genres');
+        router.push('/connexion');
       } catch (error) {
         console.error("Erreur lors de l'inscription :", error);
       }
