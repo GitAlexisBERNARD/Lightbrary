@@ -7,8 +7,35 @@
 
 <template>
     <nav>
-        <div class="text-Primary2(White) text-sm pb-12">
-            <img src="/img/Banniere.webp">
+        <section>
+            <header>
+                <div class="grille_mobile relative grid h-screen grid-rows-[10fr_1fr]">
+                    <div class="col-span-4 self-center font-text rounded-[10px] py-3 mt-14">
+                        <p class=" f">Vous avez du temps libre et vous ne savez pas quoi faire ?</p>
+                        <h1 class="text-[64px]">Lightbray</h1>
+                        <h2>, mettez en lumière votre Watchlist</h2>
+                        <p>Films, séries, musiques et livres. Trouvez tous les médias qui vous correspondent !</p>
+                    </div>
+
+                    <img src="/img/Banniere.webp" alt="Photo Fondation Cartier" class="absolute inset-0 object-cover w-full h-full z-[-1]" />
+
+                    <button class="col-span-2">
+                        <RouterLink 
+                            to="/exposition" 
+                            class="flex items-center justify-between bg-Footer hover:bg-Tonique_1 h-[54px] relative gap-2 px-2.5 py-[9px] mt-5 font-button text-Dominante text-[12px] uppercase"
+                        >
+                            En savoir plus
+                        </RouterLink>
+                    </button>
+
+                    <div class="col-start-2">
+                        <chevronDownVue/>
+                    </div>
+                </div>
+            </header>
+        </section>
+        <!-- <div class="text-Primary2(White) text-sm pb-12">
+            
             Vous avez du temps et vous ne savez pas quoi faire ?
         </div>
         <ul class="text-xl pb-12">
@@ -28,9 +55,9 @@
         </nav>
         <button class="px-5 py-2 border-2 bg-Secondary1(Gold) flex justify-center pb-10">
             En savoir plus
-        </button>
+        </button> -->
     </nav>
-    <div class="bg-Primary1(Black) text-Primary2(White)">
+    <!-- <div class="bg-Primary1(Black) text-Primary2(White)">
         <nav class="flex justify-center items-center">
 
             <div class="h-3 w-full text-lg bg-Secondary1(Gold)">
@@ -171,5 +198,5 @@
             </div>
         </div>
         <img class="flex justify-center items-center" src="/img/tv_2.webp">
-    </div>
+    </div> -->
 </template>
