@@ -64,6 +64,7 @@ import { ref } from 'vue'
   <br />
   <RouterLink to="/inscription">Inscription</RouterLink>
   <RouterLink to="/film-serie">Accueil</RouterLink>
+  <RouterLink to="/profil/[id]">Profil</RouterLink>
   <main>
     <!-- Suspense sera utile pour charger les données (await) -->
     <!-- Affiche la page -->
