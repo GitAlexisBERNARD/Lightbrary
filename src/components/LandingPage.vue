@@ -9,27 +9,27 @@
     <nav>
         <section>
             <header>
-                <div class="grille_mobile relative grid h-screen grid-rows-[10fr_1fr]">
-                    <div class="col-span-4 self-center font-text mt-14">
-                        <p class="font-light text-Primary2(White) text-[12px] pb-10">Vous avez du temps libre et vous ne savez pas quoi faire ?</p>
-                        <h1 class="font-bold text-Secondary1(Gold) text-[36px]">Lightbray,</h1>
-                        <h1 class="font-bold text-Primary2(White) text-[36px] pb-10">mettez en lumière votre Watchlist</h1>
-                        <p class="font-medium text-Primary2(White) text-[14px]">Films, séries, musiques et livres. Trouvez tous les médias qui vous correspondent !</p>
+                <div class="grille_mobile lg:grille_landing relative grid h-screen grid-rows-[10fr_1fr] pt-14">
+                    <div class="col-span-4 lg:col-span-6 self-center font-text">
+                        <p class="font-light text-Primary2(White) text-[12px] pb-10 lg:text-[16px]">Vous avez du temps libre et vous ne savez pas quoi faire ?</p>
+                        <h1 class="font-bold text-Secondary1(Gold) text-[36px] lg:text-[48px]">Lightbray,</h1>
+                        <h1 class="font-bold text-Primary2(White) text-[36px] pb-10 lg:text-[40px]">mettez en lumière votre Watchlist</h1>
+                        <p class="font-medium text-Primary2(White) text-[14px] lg:text-[16px]">Films, séries, musiques et livres. Trouvez tous les médias qui vous correspondent !</p>
                     </div>
 
                     <img src="/img/Banniere.webp" alt="Photo Fondation Cartier" class="absolute inset-0 object-cover w-full h-full z-[-1]" />
 
-                    <div class="col-span-2 col-start-2 flex justify-between">
+                    <div class="col-span-2 col-start-2 lg:col-span-1 lg:col-start-9 flex justify-between lg:flex-col lg:justify-center lg:gap-20">
                         <IconLivre class="w-[50px] h-[50px] stroke-[1px] stroke-Primary2(White)"/>
                         <IconMusique class="w-[50px] h-[50px] stroke-[1px] stroke-Primary2(White)"/>
                     </div>
 
-                    <div class="col-span-4 flex justify-between">
+                    <div class="col-span-4 lg:col-span-1 lg:col-start-10 flex justify-between lg:flex-col lg:justify-between lg:items-end">
                         <IconFilm class="w-[50px] h-[50px] stroke-[1px] stroke-Primary2(White)"/>
                         <IconTv class="w-[50px] h-[50px] stroke-[1px] stroke-Primary2(White)"/>
                     </div>
                     
-                    <button class="col-span-2 col-start-2 pt-10">
+                    <button class="col-span-2 col-start-2 pt-10 lg:col-start-1">
                         <RouterLink 
                             to="/exposition" 
                             class="font-text font-medium text-Primary1(Black) bg-Secondary1(Gold) py-3 px-5 rounded-[8px]"
