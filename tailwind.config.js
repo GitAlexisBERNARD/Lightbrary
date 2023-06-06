@@ -29,6 +29,7 @@ export default {
         desktop: 'repeat(12, minmax(0, 86px))',
         mobile: 'repeat(4, minmax(0, 64px))',
         profil: 'repeat(10, minmax(0, 86px))',
+        desktop_connexion: 'repeat(12, minmax(0, 86px))',
      }
   },
   plugins: [],

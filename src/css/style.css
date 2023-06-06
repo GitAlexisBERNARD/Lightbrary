@@ -11,7 +11,10 @@
     };
     .grille_profil {
       @apply px-36 grid grid-cols-profil justify-self-stretch gap-8;
-    }
+    };
+    .grille_connexion {
+      @apply px-6 lg:grid lg:grid-cols-desktop_connexion lg:justify-center lg:gap-8;
+    };
     .grille {
       @apply px-6 lg:grid lg:grid-cols-principal lg:justify-center lg:gap-12;
     }
