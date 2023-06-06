@@ -1,8 +1,6 @@
 <template>
   <div>
-    <h1>Bienvenue sur le tableau de bord</h1>
-    <p v-if="userInfo">Vous êtes connecté en tant que {{ userInfo.username }}</p>
-    <button @click="clear()">deconnexion</button>
+    <h1>Chargement en cours</h1>
   </div>
 </template>
 
@@ -10,7 +8,7 @@
 import { RouterLink, RouterView } from 'vue-router';
 import HeaderPage from '@/components/HeaderPage.vue';
 import PocketBase from 'pocketbase';
-import { useRouter } from 'vue-router';
+import { Router } from 'vue-router'; 
 
 var pocketbase_ip = '';
 if (process.env.NODE_ENV === 'production') {
@@ -24,7 +22,7 @@ const pb = new PocketBase(pocketbase_ip);
 export default {
   data() {
     return {
-      userInfo: null,
+      userInfo: null
     };
   },
   async mounted() {
@@ -33,28 +31,10 @@ export default {
     this.userInfo = userInfo;
     const genres = await this.getGenres(pb.authStore.model.data);
     this.updateGenre(genres);
-    if (userInfo.firstconnexion === false) {
-      await this.initwhilistdata();
-      await pb.collection('users').update(userInfo.id.toString(), { 'firstconnexion': true });
-    }
+    this.$router.push('/dashboard');
   },
   
   methods: {
-    async clear() {
-      const router = useRouter()
-      await pb.authStore.clear();
-      console.log(pb.authStore.model);
-      router.push('/connexion');
-    },
-    async initwhilistdata(){
-      const userInfo = pb.authStore.model.id.toString();
-      const json = JSON.stringify({ "Film": [], "Livre": [], "Musique": [] });
-        try {
-          await pb.collection('users').update(userInfo, { 'watchlist': `${json}`});
-        } catch (error) {
-          console.error(error);
-        }
-      },
     async updateGenre(json) {
       const userInfo = pb.authStore.model.id.toString();
       try {
@@ -131,57 +111,7 @@ export default {
     }
   }
 };
-const data = {
-  "Film": {
-    "id": [
-      "333339"
-    ],
-    "genre": [
-      "Science Fiction",
-      "Adventure",
-      "Action"
-    ]
-  },
-  "Livre": {
-    "id": [
-      "LH7ziruT7ZQC",
-      "kRctEAAAQBAJ",
-      "VugRtAEACAAJ",
-      "XLVJDwAAQBAJ"
-    ],
-    "genre": [
-      "Fiction / Science Fiction / General",
-      "Fiction / Science Fiction / General",
-      "Fiction / Science Fiction / Action",
-      "Adventure",
-      "Fiction / Literary",
-      "Fiction / General"
-    ]
-  },
-  "Musique": {
-    "id": [
-      "1354248992",
-      "1454446626",
-      "1454446624",
-      "1412214020",
-      "1454446630"
-    ],
-    "genre": [
-      "Action",
-      "Adventure",
-      "Rock",
-      "R&B/Soul",
-      "Dance",
-      "Rock"
-    ]
-  },
-  "GenrePref": {
-    "genre": [
-      "Science Fiction",
-      "Adventure"
-    ]
-  }
-};
+const data = pb.authStore.model.genre;  
 
 let genreCounts = {};
 

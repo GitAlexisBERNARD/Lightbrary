@@ -1,6 +1,65 @@
+<template>
+  <div>
+    <h1>Bienvenue sur le tableau de bord</h1>
+    <div v-if="otherResults.length > 0">
+      <RouterLink :to="{ name: 'pageitem-movie-id', params: { id: otherResults[0].movieID[0] } }">
+        <img :src="otherResults[0].movie[0]" alt="Image de film">
+        <p>Score d'affinité : 100</p>
+      </RouterLink>
+      <RouterLink :to="{ name: 'pageitem-movie-id', params: { id: otherResults[0].movieID[1] } }">
+        <img :src="otherResults[0].movie[1]" alt="Image de film">
+        <p>Score d'affinité : 100</p>
+      </RouterLink>
+      <RouterLink :to="{ name: 'pageitem-book-id', params: { id: otherResults[0].bookID[0] } }">
+        <img :src="otherResults[0].book[0]" alt="Image de livre">
+        <p>Score d'affinité : 100</p>
+      </RouterLink>
+      <RouterLink :to="{ name: 'pageitem-music-id', params: { id: otherResults[0].musicID[0] } }">
+        <img :src="otherResults[0].music[0]" alt="Image de musique">
+        <p>Score d'affinité : 100</p>
+      </RouterLink>
+    </div>
+    <p>separation</p>
+    <div v-for="result in otherResults" :key="result.genre">
+      <h2>{{ result.genre }}</h2>
+      <div v-for="index in result.minCount" :key="index">
+        <div v-if="index < result.movie.length">
+          <RouterLink :to="{ name: 'pageitem-movie-id', params: { id: result.movieID[index] } }">
+            <img :src="result.movie[index]" :alt="'Image de film ' + index">
+            <p>Score d'affinité : {{ result.affinityScore -index }}</p>
+          </RouterLink>
+        </div>
+        <div v-if="index < result.book.length">
+          <RouterLink :to="{ name: 'pageitem-book-id', params: { id: result.bookID[index] } }">
+            <img :src="result.book[index]" :alt="'Image de livre ' + index">
+            <p>Score d'affinité : {{ result.affinityScore -index }}</p>
+          </RouterLink>
+        </div>
+        <div v-if="index < result.music.length">
+          <RouterLink :to="{ name: 'pageitem-music-id', params: { id: result.musicID[index] } }">
+            <img :src="result.music[index]" :alt="'Image de musique ' + index">
+            <p>Score d'affinité : {{ result.affinityScore -index }}</p>
+          </RouterLink>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+
 <script lang="ts">
 import { RouterLink } from 'vue-router';
+import HeaderPage from '@/components/HeaderPage.vue';
 import PocketBase from 'pocketbase';
+
+function rechargerPageUneSeuleFois() {
+  if (!sessionStorage.getItem('pageReloaded')) {
+    sessionStorage.setItem('pageReloaded', 'true');
+    location.reload();
+  }
+}
+
+rechargerPageUneSeuleFois();
 
 export default {
   data() {
@@ -136,270 +195,4 @@ export default {
     }
   }
 };
-</script>
-
-<script setup lang="ts">
-import Recherche from '@/components/Recherche.vue'; 
-</script>
-
-<template>
-    <main class="bg-Primary1(Black) pt-10">
-        <div>
-            <Recherche/>
-        </div>
-
-        <div class="grille_mobile lg:grille_desktop pt-5">
-            <h1 class="col-span-4 font-text text-Primary2(White) text-[24px]">Notre selection</h1>
-
-            <div class="col-span-4 lg:col-span-12 flex gap-7 overflow-hidden overflow-x-scroll lg:justify-center" v-if="otherResults.length > 0">
-                <RouterLink class="flex-none font-text font-bold text-Primary2(White)" :to="{ name: 'pageitem-movie-id', params: { id: otherResults[0].movieID[0] } }">
-                    <img :src="otherResults[0].movie[0]" alt="Image de film">
-                    <p>Score d'affinité : 100</p>
-                </RouterLink>
-                <RouterLink class="flex-none font-text font-bold text-Primary2(White)" :to="{ name: 'pageitem-movie-id', params: { id: otherResults[0].movieID[1] } }">
-                    <img :src="otherResults[0].movie[1]" alt="Image de film">
-                    <p>Score d'affinité : 100</p>
-                </RouterLink>
-                <RouterLink class="flex-none font-text font-bold text-Primary2(White)" :to="{ name: 'pageitem-book-id', params: { id: otherResults[0].bookID[0] } }">
-                    <img :src="otherResults[0].book[0]" alt="Image de livre">
-                    <p>Score d'affinité : 100</p>
-                </RouterLink>
-                <RouterLink class="flex-none font-text font-bold text-Primary2(White)" :to="{ name: 'pageitem-music-id', params: { id: otherResults[0].musicID[0] } }">
-                    <img :src="otherResults[0].music[0]" alt="Image de musique">
-                    <p>Score d'affinité : 100</p>
-                </RouterLink>
-            </div> 
-        </div>
-
-        <div>
-            <div class="px-5 font-text text-Primary2(White) text-[16px] flex justify-between gap-6 lg:w-[451px] lg:text-[24px] py-5">
-              <p class="text-Secondary1(Gold) border-b-[3px]">Tout</p>
-                <RouterLink to="/pageitem/film-serie">
-                    Film - Série
-                </RouterLink>
-                <RouterLink to="/pageitem/livre">
-                    Livre
-                </RouterLink>
-                <RouterLink to="/pageitem/musique">
-                    Musique
-                </RouterLink>
-            </div>
-
-            <div v-for="result in otherResults" :key="result.genre">
-                <h2>{{ result.genre }}</h2>
-                <div v-for="index in result.minCount" :key="index">
-                <div v-if="index < result.movie.length">
-                    <RouterLink :to="{ name: 'pageitem-movie-id', params: { id: result.movieID[index] } }">
-                    <img :src="result.movie[index]" :alt="'Image de film ' + index">
-                    <p>Score d'affinité : {{ result.affinityScore -index }}</p>
-                    </RouterLink>
-                </div>
-                <div v-if="index < result.book.length">
-                    <RouterLink :to="{ name: 'pageitem-book-id', params: { id: result.bookID[index] } }">
-                    <img :src="result.book[index]" :alt="'Image de livre ' + index">
-                    <p>Score d'affinité : {{ result.affinityScore -index }}</p>
-                    </RouterLink>
-                </div>
-                <div v-if="index < result.music.length">
-                    <RouterLink :to="{ name: 'pageitem-music-id', params: { id: result.musicID[index] } }">
-                    <img :src="result.music[index]" :alt="'Image de musique ' + index">
-                    <p>Score d'affinité : {{ result.affinityScore -index }}</p>
-                    </RouterLink>
-                </div>
-                </div>
-            </div>
-        </div>
-    </main>
-</template>
-
-<script lang="ts">
-import { RouterLink, RouterView } from 'vue-router';
-import HeaderPage from '@/components/HeaderPage.vue';
-import PocketBase from 'pocketbase';
-
-var pocketbase_ip = '';
-if (process.env.NODE_ENV === 'production') {
-  pocketbase_ip = '193.168.146.150:80';
-} else {
-  pocketbase_ip = 'http://127.0.0.1:8090';
-}
-
-const pb = new PocketBase(pocketbase_ip);
-
-export default {
-  data() {
-    return {
-      userInfo: null,
-    };
-  },
-  async mounted() {
-    const userInfo = pb.authStore.model;
-    console.log(userInfo);
-    this.userInfo = userInfo;
-    const genres = await this.getGenres(pb.authStore.model.data);
-    this.updateGenre(genres);
-    if (userInfo.firstconnexion === false) {
-      await this.initwhilistdata();
-      await pb.collection('users').update(userInfo.id.toString(), { 'firstconnexion': true });
-    }
-  },
-  
-  methods: {
-    async initwhilistdata(){
-      const userInfo = pb.authStore.model.id.toString();
-      const json = JSON.stringify({ "Film": [], "Livre": [], "Musique": [] });
-        try {
-          await pb.collection('users').update(userInfo, { 'watchlist': `${json}`});
-        } catch (error) {
-          console.error(error);
-        }
-      },
-    async updateGenre(json) {
-      const userInfo = pb.authStore.model.id.toString();
-      try {
-        await pb.collection('users').update(userInfo, { 'genre': `${json}` });
-      } catch (error) {
-        console.error(error);
-      }
-    },
-    async getGenres(jsonData) {
-      const movieGenreApiUrl = 'https://api.themoviedb.org/3/movie/';
-      const bookGenreApiUrl = 'https://www.googleapis.com/books/v1/volumes/';
-      const musicGenreApiUrl = 'https://itunes.apple.com/lookup?id=';
-
-      const genres = {};
-
-      if (jsonData.Film) {
-        for (const movieId of jsonData.Film) {
-          const response = await fetch(`${movieGenreApiUrl}${movieId}?api_key=ab3ffc07e2a06a3122219298b0ba013b`);
-          const movieData = await response.json();
-
-          if (movieData.genres) {
-            genres[`Film_${movieId}`] = movieData.genres;
-          }
-        }
-      }
-
-      if (jsonData.Livre) {
-        for (const bookId of jsonData.Livre) {
-          const response = await fetch(`${bookGenreApiUrl}${bookId}`);
-          const bookData = await response.json();
-
-          if (bookData.volumeInfo && bookData.volumeInfo.categories) {
-            genres[`Livre_${bookId}`] = bookData.volumeInfo.categories;
-          }
-        }
-      }
-
-      if (jsonData.Musique) {
-        for (const musicId of jsonData.Musique) {
-          const response = await fetch(`${musicGenreApiUrl}${musicId}`);
-          const musicData = await response.json();
-
-          if (musicData.results && musicData.results[0] && musicData.results[0].primaryGenreName) {
-            genres[`Musique_${musicId}`] = [musicData.results[0].primaryGenreName];
-          }
-        }
-      }
-
-      const transformedGenres = {};
-
-      for (const key in genres) {
-        const [type, id] = key.split('_');
-        const genreData = genres[key];
-
-        if (!transformedGenres[type]) {
-          transformedGenres[type] = { id: [], genre: [] };
-        }
-
-        transformedGenres[type].id.push(id);
-
-        genreData.forEach(genreItem => {
-          const genre = genreItem.name || genreItem;
-
-          if (genre.includes('&')) {
-            const separatedGenres = genre.split(' & ');
-            transformedGenres[type].genre.push(...separatedGenres);
-          } else {
-            transformedGenres[type].genre.push(genre);
-          }
-        });
-      }
-
-      return JSON.stringify(transformedGenres);
-    }
-  }
-};
-const data = {
-  "Film": {
-    "id": [
-      "333339"
-    ],
-    "genre": [
-      "Science Fiction",
-      "Adventure",
-      "Action"
-    ]
-  },
-  "Livre": {
-    "id": [
-      "LH7ziruT7ZQC",
-      "kRctEAAAQBAJ",
-      "VugRtAEACAAJ",
-      "XLVJDwAAQBAJ"
-    ],
-    "genre": [
-      "Fiction / Science Fiction / General",
-      "Fiction / Science Fiction / General",
-      "Fiction / Science Fiction / Action",
-      "Adventure",
-      "Fiction / Literary",
-      "Fiction / General"
-    ]
-  },
-  "Musique": {
-    "id": [
-      "1354248992",
-      "1454446626",
-      "1454446624",
-      "1412214020",
-      "1454446630"
-    ],
-    "genre": [
-      "Action",
-      "Adventure",
-      "Rock",
-      "R&B/Soul",
-      "Dance",
-      "Rock"
-    ]
-  },
-  "GenrePref": {
-    "genre": [
-      "Science Fiction",
-      "Adventure"
-    ]
-  }
-};
-
-let genreCounts = {};
-
-for (let category in data) {
-
-  data[category].genre.forEach(genre => {
-
-    genreCounts[genre] = genreCounts[genre] ? genreCounts[genre] + 1 : 1;
-  });
-}
-
-
-let genres = Object.keys(genreCounts).map(genre => [genre, genreCounts[genre]]);
-
-
-genres.sort((a, b) => b[1] - a[1]);
-
-let topFiveGenres = genres.slice(0, 5);
-
-console.log(topFiveGenres);
-
 </script>

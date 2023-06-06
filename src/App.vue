@@ -5,9 +5,6 @@ import { ref } from 'vue'
   import FooterPage from '@/components/FooterPage.vue'
   import user from '@/components/icons/user.vue';
   import Polygon from '@/components/icons/Polygon_down.vue'
-
-  const connected = false;
-
   const profil= ref(false)
 </script>
 
@@ -36,18 +33,19 @@ import { ref } from 'vue'
 
         <div class="hidden lg:flex flex-col gap-3">
           <button class="flex items-center gap-3 font-text font-medium text-[14px] text-Secondary1(Gold)" @click="profil=!profil">
-            krys_film
+            {{ name }}
             <Polygon class="fill-Secondary1(Gold)" :class="{'rotate-180':profil}"/>
-            <img class="w-[40px]" src="/img/Test_Profil.webp" alt="Photo de profil">
+            <img v-if="url" class="w-[40px]" :src="url" alt="image de profil" />
+            <img v-else class="w-[40px]" src="default-avatar.png" alt="image de profil par défaut" />
           </button>
 
           <div class="hidden fixed mt-10 p-2 bg-Primary1(Black)" :class="{'!block' :profil}">
             <nav>
               <ul class="font-text font-medium text-[14px] text-Primary2(White)">
-                <li class="pb-1"><RouterLink to="">Ma liste</RouterLink></li>
-                <li class="pb-1"><RouterLink to="">Profil</RouterLink></li>
-                <li class="pb-1"><RouterLink to="">Modifier mon profil</RouterLink></li>
-                <li><RouterLink to="">Déconnexion</RouterLink></li>
+                <li class="pb-1"><RouterLink to="/profil">Ma liste</RouterLink></li>
+                <li class="pb-1"><RouterLink to="/profil">Profil</RouterLink></li>
+                <li class="pb-1"><RouterLink to="/profil/modification">Modifier mon profil</RouterLink></li>
+                <li><button @click="clear()">Déconnexion</button></li>
               </ul>
             </nav>
           </div>
@@ -76,4 +74,42 @@ import { ref } from 'vue'
 
   <!-- <FooterPage/> -->
 </template>
+<script lang="ts">
+import PocketBase from 'pocketbase';
+import { useRouter } from 'vue-router';
+
+let pocketbase_ip = '';
+if (import.meta.env.MODE === 'production') {
+  pocketbase_ip = '193.168.146.150:80';
+} else {
+  pocketbase_ip = 'http://127.0.0.1:8090';
+}
+
+const pb = new PocketBase(pocketbase_ip);
+const connected = pb.authStore.isValid
+
+export default {
+  data() {
+    return {
+      url: '',
+      name: '',
+    };
+  },
+  async mounted() {
+    const userInfopb = await pb.authStore.model;
+    const userInfo = await pb.collection('users').getOne(userInfopb.id.toString());
+    const img = userInfo.img;
+    this.url = pb.files.getUrl(userInfo, img, { thumb: '100x250' });
+    this.name = userInfo.name;
+    console.log(this.url);
+},
+methods: {
+async clear() {
+      const router = useRouter()
+      await pb.authStore.clear();
+      window.location.href = 'http://localhost:5173/';
+    },
+  },
+};
+</script>
   

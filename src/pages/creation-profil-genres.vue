@@ -13,7 +13,7 @@
     <li><input type="checkbox" v-model="genres['Thriller']"/> Thriller</li>
     <li><input type="checkbox" v-model="genres['Horreur']"/> Horreur</li>
   </ul>
-  <RouterLink to="pageitem">
+  <RouterLink to="/dashboard">
   <button>Valider
     </button>
   </RouterLink>
