@@ -45,7 +45,7 @@
                         <li class="hidden font-text font-medium  text-Primary2(White) text-menu lg:block"><RouterLink class="menu-link" to="/"
                             @click="closeMenu">Accueil</RouterLink></li>
                         <li class="font-text font-medium  text-Primary2(White) text-menu">
-                            <RouterLink class="flex items-center gap-5 menu-link" to="/films"
+                            <RouterLink class="flex items-center gap-5 menu-link" to="/pageitem/film-serie"
                             @click="closeMenu">
                                 <FilmIcon class="lg:hidden"/>
                                 Films

@@ -64,7 +64,7 @@ export default {
         <button class="font-text text-Primary2(White) text-[16px] underline" v-on:click="reset">Mot de passe oublié ?</button>
       </div>
 
-      <div class="lg:hidden row-start-4 col-span-4 flex justify-between">
+      <div class="row-start-4 col-span-4 flex justify-between">
         <button class="py-4 px-6 bg-Secondary1(Gold) font-text font-medium text-Primary1(Black) text-[20px] rounded-[8px]" v-on:click="login">Connexion</button>
         <button class="py-4 px-6 bg-Primary1(Black) font-text font-medium text-Secondary1(Gold) text-[20px] rounded-[8px] border">
           <RouterLink to="/inscription">
@@ -72,9 +72,6 @@ export default {
           </RouterLink>
         </button>
       </div>
-
-      <button class="hidden lg:block row-start-4 col-span-2 col-start-6 py-4 bg-Secondary1(Gold) font-text font-medium text-Primary1(Black) text-[20px] rounded-[8px]" v-on:click="login">Connexion</button>
-
       <RouterLink class="col-span-4 lg:col-start-5 row-start-5 flex flex-col font-text text-Primary2(White) text-[12px] text-center" to="">
         Accéder à la charte d'utilisation des données personnelles
       </RouterLink>

@@ -33,7 +33,7 @@ export default {
           name: document.getElementById('name').value,
         });
         console.log("pourquoi ça ne marche pas ?");
-        router.push('/dashboard');
+        router.push('/creation-profil-genres');
       } catch (error) {
         console.error("Erreur lors de l'inscription :", error);
       }
