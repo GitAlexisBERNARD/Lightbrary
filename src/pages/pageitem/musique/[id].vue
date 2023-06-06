@@ -2,77 +2,85 @@
 import PocketBase from 'pocketbase';
 import { RouterLink } from 'vue-router';
 
-
 var pocketbase_ip = '';
 if (process.env.NODE_ENV === 'production') {
-    pocketbase_ip = '193.168.146.150:80';
+  pocketbase_ip = '193.168.146.150:80';
 } else {
-    pocketbase_ip = 'http://127.0.0.1:8090';
+  pocketbase_ip = 'http://127.0.0.1:8090';
 }
 
 const pb = new PocketBase(pocketbase_ip);
 
 export default {
-    props: {
-        id: String,
-    },
-    data() {
-        return {
-            film: null,
-            films: [],
-            UserFilm: [],
-        };
-    },
-
-
-    async mounted() {
-        await this.fetchFilm();
-        await this.fetchFilms(this.film.genres[0]);
-    },
-
-    methods: {
-        reloadPage() {
-    setTimeout(() => {
-      window.location.reload();
-    }, 400); 
+  props: {
+    id: String,
   },
-        async fetchFilm() {
-            const response = await fetch(`https://api.themoviedb.org/3/movie/${this.id}?api_key=ab3ffc07e2a06a3122219298b0ba013b&language=fr-FR`);
-            if (response.ok) {
-                const data = await response.json();
-                this.film = data;
-            }
-        },
-
-        async saveToFilm(id) {
-            const Info = pb.authStore.model.watchlist;
-            console.log(Info);
-            Info.Film.push(id);
-            try {
-                await pb.collection('users').update(pb.authStore.model.id.toString(), { 'watchlist': JSON.stringify(Info) });
-            } catch (error) {
-                console.error('Erreur lors de la mise à jour de la liste de suivi :', error);
-            }
-        },
-        async saveToData(id) {
-            const Info = pb.authStore.model.data;
-            console.log(Info);
-            Info.Film.push(id);
-            try {
-                await pb.collection('users').update(pb.authStore.model.id.toString(), { 'data': JSON.stringify(Info) });
-            } catch (error) {
-                console.error('Erreur lors de la mise à jour de la liste de suivi :', error);
-            }
-        },
-        async fetchFilms(genreId) {
-            const response = await fetch(`https://api.themoviedb.org/3/discover/movie?api_key=ab3ffc07e2a06a3122219298b0ba013b&with_genres=${genreId}`);
-            if (response.ok) {
-                const data = await response.json();
-                this.films = data.results.slice(0, 5);
-            }
-        },
-
+  data() {
+    return {
+      song: null,
+      similarSongs: [],
+    };
+  },
+  
+  async mounted() {
+    await this.fetchSong();
+    console.log(this.song);
+    await this.fetchSimilarSongs();
+  },
+  
+  methods: {
+    reloadPage() {
+      setTimeout(() => {
+        window.location.reload();
+      }, 400);
     },
+    async fetchSong() {
+      try {
+        const response = await fetch(`https://itunes.apple.com/lookup?id=${this.id}`);
+        if (response.ok) {
+          const data = await response.json();
+          this.song = data.results[0];
+        }
+      } catch (error) {
+        console.error('Erreur lors de la récupération de la chanson:', error);
+      }
+    },
+    async saveToSong(id) {
+          const Info = pb.authStore.model.watchlist;
+          console.log(Info);
+          Info.Musique.push(id);
+          try {
+              await pb.collection('users').update(pb.authStore.model.id.toString(), { 'watchlist': JSON.stringify(Info) });
+          } catch (error) {
+              console.error('Erreur lors de la mise à jour de la liste de suivi :', error);
+          }
+      },
+      async saveToData(id) {
+          const Info = pb.authStore.model.data;
+          console.log(Info);
+          Info.Musique.push(id);
+          try {
+              await pb.collection('users').update(pb.authStore.model.id.toString(), { 'data': JSON.stringify(Info) });
+          } catch (error) {
+              console.error('Erreur lors de la mise à jour de la liste de suivi :', error);
+          }
+      },
+    async fetchSimilarSongs() {
+      try {
+        const response = await fetch(`https://itunes.apple.com/lookup?id=${this.song.artistId}&entity=song&limit=5`);
+        if (response.ok) {
+          const data = await response.json();
+          this.similarSongs = data.results.slice(1);
+        }
+      } catch (error) {
+        console.error('Erreur lors de la récupération des morceaux similaires:', error);
+      }
+    },
+    formatDate(dateString) {
+      const options = { year: 'numeric', month: 'long', day: 'numeric' };
+      return new Date(dateString).toLocaleDateString('fr-FR', options);
+    },
+  },
 };
 </script>
 
@@ -84,16 +92,17 @@ import check from '@/components/icons/check.vue'
 
 <template>
     <main class="bg-Primary1(Black) pb-12 absolute z-10 -mt-24 w-full lg:mt-0">
-        <section v-if="film">
+        <section v-if="song">artistId">
             <header class="grille_mobile lg:grille_profil pt-7">
-                <img class="col-span-2 col-start-2 border border-Primary2(White) rounded-[20px] lg:col-span-3 lg:col-start-1" :src="'https://image.tmdb.org/t/p/w500' + film.poster_path" :alt="film.title">
+                <img class="col-span-2 col-start-2 border border-Primary2(White) rounded-[20px] lg:col-span-3 lg:col-start-1" :src="song.artworkUrl100" :alt="song.trackName">
 
                 <div class="col-span-4 font-text text-center lg:col-span-5 lg:col-start-4 lg:text-start ">
-                    <h1 class="font-bold text-Primary2(White) text-[24px] lg:text-[35px]">{{ film.title }}</h1>
-                    <h2 class="font-medium text-Secondary1(Gold) lg:text-[25px]">Steven Spielberg</h2>
+                    <h1 class="font-bold text-Primary2(White) text-[24px] lg:text-[35px]">{{ song.trackName }}</h1>
+                    <h2 class="font-medium text-Secondary1(Gold) lg:text-[25px]">{{ song.artistName }}</h2>
+                    <p class="italic text-Gray1 lg:text-[20px]">{{ formatDate(song.releaseDate) }}</p>
 
                     <div class="hidden lg:flex justify-between font-text text-Secondary1(Gold) text-[16px] pt-5">
-                        <p class="border rounded-[20px] py-1 px-5">{{ film.genres.map(genre => genre.name).join(', ') }}</p>
+                        <p class="border rounded-[20px] py-1 px-5">{{ song.primaryGenreName }}</p>
                     </div>
 
                     <p class="text-Primary2(White)">{{ film.overview }}</p>
@@ -114,17 +123,17 @@ import check from '@/components/icons/check.vue'
                 <div class="hidden lg:flex col-span-2 items-end gap-1">
                     <div class="bg-Secondary1(Gold) rounded-l-[6px] flex flex-col items-center justify-center p-2 gap-2 h-[90px]">
                         <like/>
-                        <p class=" font-text text-Primary1(Black) text-[10px] text-center" @click="saveToFilm(film.id)">Ajouter à ma Watchlist</p>
+                        <p class=" font-text text-Primary1(Black) text-[10px] text-center"  @click="saveToSong(song.trackId)">Ajouter à ma Watchlist</p>
                     </div>
 
                     <div class="bg-Primary2(White) opacity-[0.90] rounded-r-[6px] flex flex-col items-center justify-center p-2 gap-2 h-[90px]">
                         <check/>
-                        <p class=" font-text text-Primary1(Black) text-[10px] text-center" @click="saveToData(film.id)">Marquer comme vu</p>
+                        <p class=" font-text text-Primary1(Black) text-[10px] text-center"@click="saveToData(song.trackId)">Marquer comme vu</p>
                     </div>
                 </div>
                 
                 <div class="col-span-4 flex justify-between font-text text-Secondary1(Gold) text-[14px] lg:hidden">
-                    <p class="border rounded-[20px] py-1 px-5">{{ film.genres.map(genre => genre.name).join(', ') }}</p>
+                    <p class="border rounded-[20px] py-1 px-5">{{ book.volumeInfo.categories ? book.volumeInfo.categories.join(', ') : 'Non spécifié' }}</p>
                 </div>
             </header>
 
@@ -144,18 +153,18 @@ import check from '@/components/icons/check.vue'
                 <div class="grille_mobile lg:hidden">
                     <div class="col-span-4 bg-Secondary1(Gold) rounded-[6px] flex items-center p-2 gap-4">
                         <like/>
-                        <p class=" font-text text-Primary1(Black) text-[10px]" @click="saveToFilm(film.id)">Ajouter à ma Watchlist</p>
+                        <p class=" font-text text-Primary1(Black) text-[10px]"  @click="saveToSong(song.trackId)">Ajouter à ma Watchlist</p>
                     </div>
 
                     <div class="col-span-4 bg-Primary2(White) opacity-[0.90] rounded-[6px] flex items-center p-2 gap-4 -mt-4">
                         <check/>
-                        <p class=" font-text text-Primary1(Black) text-[10px]" @click="saveToData(film.id)">Marquer comme vu</p>
+                        <p class=" font-text text-Primary1(Black) text-[10px]" @click="saveToData(song.trackId)">Marquer comme vu</p>
                     </div>
                 </div>
 
                 <div class="grille_mobile lg:grille_profil py-5 lg:py-20">
                     <h2 class="hidden lg:block font-text font-bold text-Primary2(White) text-[24px] lg:col-span-3 lg:border-b lg:border-Secondary1(Gold) lg:pb-2">Histoire</h2>
-                    <p class="col-span-4 font-text text-Primary2(White) text-[12px] lg:col-span-8">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur lacinia commodo metus, quis vulputate turpis rhoncus ac. Vivamus pulvinar aliquet mi id pretium. Maecenas ac malesuada enim. Fusce at nibh in eros rutrum fermentum at ut sapien. Vestibulum varius ligula enim, non rutrum est laoreet sit amet. Curabitur sed cursus ante, a condimentum ipsum. Nunc imperdiet hendrerit nunc, vitae tempus lacus. Donec sed est libero. Nulla eu dolor nec urna vulputate iaculis. Duis interdum quis ante eget tincidunt. Duis ultrices odio nibh, lobortis molestie ante luctus sed. Sed quis luctus massa, at viverra tellus. Mauris in rutrum purus.</p>
+                    <p class="col-span-4 font-text text-Primary2(White) text-[12px] lg:col-span-8">{{ book.volumeInfo.description }}</p>
                 </div>
 
                 <div class="grille_mobile mt-5 lg:hidden">
@@ -168,9 +177,10 @@ import check from '@/components/icons/check.vue'
 
                 <div class="hidden lg:grille_profil">
                     <h2 class="font-text font-bold text-Primary2(White) text-[24px] lg:col-span-3 lg:border-b lg:border-Secondary1(Gold) lg:pb-2">Du même genre</h2>
-                    <div class="lg:row-start-2" v-for="filmss in films" :key="filmss.id">
-                        <RouterLink @click="reloadPage" :to="{ name: 'pageitem-movie-id', params: { id: filmss.id } }">
-                            <img :src="'https://image.tmdb.org/t/p/w500' + filmss.poster_path" :alt="filmss.title">
+                    <div class="lg:row-start-2" v-for="similarSong in similarSongs" :key="similarSong.trackId">
+                        <RouterLink  @click="reloadPage" :to="{ name: 'pageitem-music-id', params: { id: similarSong.trackId } }"">
+                            <img :src="similarSong.artworkUrl100" :alt="similarSong.trackName">
+                            <p>{{ similarSong.trackName }}</p>
                         </RouterLink>
                     </div>
                 </div>

@@ -69,7 +69,6 @@ export default {
 import Affinite from '@/components/icons/Affinite.vue';
 import like from '@/components/icons/like(black).vue';
 import check from '@/components/icons/check.vue'
-import HomeCard from '@/components/HomeCard.vue';
 </script>
 
 <template>
