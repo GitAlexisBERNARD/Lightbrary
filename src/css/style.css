@@ -9,4 +9,10 @@
     .menu-link {
       @apply block px-5 py-4;
     }
+    .grille_desktop {
+      @apply px-6 lg:grid lg:grid-cols-desktop lg:justify-center lg:gap-8;
+    };
+    .grille_mobile {
+      @apply px-6 grid grid-cols-mobile justify-center gap-8
+    };
   }

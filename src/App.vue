@@ -63,12 +63,13 @@ import { ref } from 'vue'
   <RouterLink to="/dashboard">Tableau de bord</RouterLink>
   <br />
   <RouterLink to="/inscription">Inscription</RouterLink>
+  <RouterLink to="/film-serie">Accueil</RouterLink>
   <main>
     <!-- Suspense sera utile pour charger les données (await) -->
     <!-- Affiche la page -->
     <RouterView />
   </main>
 
-  <FooterPage/>
+  <!-- <FooterPage/> -->
 </template>
   

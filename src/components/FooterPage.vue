@@ -8,7 +8,7 @@ import { RouterLink } from 'vue-router'
 </script>
 
 <template>
-  <footer class="text-Primary2(White) font-ubuntu bg-[#1A2131]">
+  <footer class="text-Primary2(White) font-text bg-[#1A2131]">
     <nav class="flex items-center justify-center lg:hidden mt-[-60px]">
       <a href="#">
         <IconLogo class="w-48" />
