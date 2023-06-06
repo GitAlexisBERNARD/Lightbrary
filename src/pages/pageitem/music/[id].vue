@@ -5,11 +5,13 @@
       <p>Auteur: {{ song.artistName }}</p>
       <p>Genre: {{ song.primaryGenreName }}</p>
       <p>Date de création: {{ formatDate(song.releaseDate) }}</p>
-      <button @click="saveToData(song.artistId)">Marque comme vu</button>
-        <button @click="saveToSong(song.artistId)">Watchlist</button>
+      <button @click="saveToData(song.trackId)">Marque comme vu</button>
+        <button @click="saveToSong(song.trackId)">Watchlist</button>
       <h2>Morceaux similaires :</h2>
       <div v-for="similarSong in similarSongs" :key="similarSong.trackId">
+        <RouterLink @click="reloadPage" :to="{ name: 'pageitem-music-id', params: { id: similarSong.trackId } }">
         <img :src="similarSong.artworkUrl100" :alt="similarSong.trackName">
+        </RouterLink>
         <p>{{ similarSong.trackName }}</p>
       </div>
     </div>
