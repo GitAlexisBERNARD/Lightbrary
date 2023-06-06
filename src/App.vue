@@ -63,7 +63,7 @@ import { ref } from 'vue'
   <RouterLink to="/dashboard">Tableau de bord</RouterLink>
   <br />
   <RouterLink to="/inscription">Inscription</RouterLink>
-  <RouterLink to="/film-serie">Accueil</RouterLink>
+  <RouterLink to="/pageitem">Accueil</RouterLink>
   <RouterLink to="/profil/[id]">Profil</RouterLink>
   <RouterLink to="/inscription">Inscription</RouterLink>
   <RouterLink to="/film-serie/[id]">Page film</RouterLink>

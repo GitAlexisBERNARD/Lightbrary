@@ -22,13 +22,16 @@ import Recherche from '@/components/Recherche.vue';
 
         <div class="flex-none">
             <div class="px-5 font-text text-Primary2(White) text-[16px] flex justify-between gap-6 lg:w-[451px] lg:text-[24px] py-5">
-                <RouterLink to="/film-serie">
+                <RouterLink to="/pageitem">
+                    Tout
+                </RouterLink>
+                <RouterLink to="/pageitem/film-serie">
                     Film - Série
                 </RouterLink>
-                <RouterLink to="/livre">
-                    Livre
+                <p class="text-Secondary1(Gold) border-b-[3px]">Livre</p>
+                <RouterLink to="/pageitem/musique">
+                    Musique
                 </RouterLink>
-                <p class="text-Secondary1(Gold) border-b-[3px]">Musique</p>
             </div>
             <div class="grille_mobile lg:grille_desktop">
                 <HomeCard class="" />
