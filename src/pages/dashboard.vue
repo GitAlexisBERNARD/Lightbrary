@@ -23,7 +23,7 @@ const pb = new PocketBase(pocketbase_ip);
 export default {
   data() {
     return {
-      userInfo: null
+      userInfo: null,
     };
   },
   async mounted() {
@@ -32,9 +32,22 @@ export default {
     this.userInfo = userInfo;
     const genres = await this.getGenres(pb.authStore.model.data);
     this.updateGenre(genres);
+    if (userInfo.firstconnexion === false) {
+      await this.initwhilistdata();
+      await pb.collection('users').update(userInfo.id.toString(), { 'firstconnexion': true });
+    }
   },
   
   methods: {
+    async initwhilistdata(){
+      const userInfo = pb.authStore.model.id.toString();
+      const json = JSON.stringify({ "Film": [], "Livre": [], "Musique": [] });
+        try {
+          await pb.collection('users').update(userInfo, { 'watchlist': `${json}`});
+        } catch (error) {
+          console.error(error);
+        }
+      },
     async updateGenre(json) {
       const userInfo = pb.authStore.model.id.toString();
       try {
