@@ -2,6 +2,7 @@
 import { ref } from 'vue'
   import { RouterLink, RouterView } from 'vue-router'
   import HeaderPage from '@/components/HeaderPage.vue'
+  import FooterPage from '@/components/FooterPage.vue'
   import user from '@/components/icons/user.vue';
   import Polygon from '@/components/icons/Polygon_down.vue'
 
@@ -53,7 +54,7 @@ import { ref } from 'vue'
         </div>
       </template>
     </HeaderPage>
-    <h1>Lightbrary</h1>
+    
   </div>
   <RouterLink to="/api">API</RouterLink>
   <br />
@@ -67,5 +68,7 @@ import { ref } from 'vue'
     <!-- Affiche la page -->
     <RouterView />
   </main>
+
+  <FooterPage/>
 </template>
   
