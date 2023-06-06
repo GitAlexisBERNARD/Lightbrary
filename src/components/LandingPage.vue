@@ -90,37 +90,41 @@
                     </div>
 
                     <div class="grille_mobile lg:grille_desktop mt-10">
-                        <h3 class="col-span-2 col-start-3 text-center bg-Secondary1(Gold) py-2 font-text font-medium italic uppercase text-Primary2(White) text-[20px] lg:col-start-11 lg:text-[20px]">Inscription</h3>
-                        <img class="col-span-2 col-start-2" src="/img/Chapitre_1.webp" alt="Photo page inscription">
-                        <p class="col-span-4 text-center font-text text-Primary2(White)">Au moment de s'inscrire sur le site, vous sélectionnez le genre de films/séries/livres/musiques que vous appréciez. Vous sélectionnez également ce que vous avez déjà vu/écouté ou lu.</p>
+                        <h3 class="col-span-2 col-start-3 text-center bg-Secondary1(Gold) py-2 font-text font-medium italic uppercase text-Primary2(White) text-[20px] lg:col-start-10 lg:col-span-3 lg:text-[24px]">Inscription</h3>
+                        <img class="col-span-2 col-start-2 lg:col-span-4 lg:col-start-2 lg:pt-5 lg:pb-10" src="/img/Chapitre_1.webp" alt="Photo page inscription">
+                        <p class="col-span-4 text-center font-text text-Primary2(White) lg:col-start-8 lg:self-center lg:pt-5 lg:pb-10">Au moment de s'inscrire sur le site, vous sélectionnez le genre de films/séries/livres/musiques que vous appréciez. Vous sélectionnez également ce que vous avez déjà vu/écouté ou lu.</p>
                     </div>
 
-                    <div class="grille_mobile mt-10">
-                        <h3 class="col-span-3 text-center bg-Secondary1(Gold) py-2 font-text font-medium italic uppercase text-Primary2(White) text-[20px]">Pourcentage d'affinité</h3>
-                        <img class="col-span-2 col-start-2" src="/img/Affinite_Pourcentage.webp" alt="">
-                        <p class="col-span-4 text-center font-text text-Primary2(White)">Notre site va alors vous proposer un pourcentage d’affinité sur chaque film/série/livre/musique.</p>
+                    <div class="grille_mobile lg:grille_desktop mt-10">
+                        <h3 class="col-span-3 text-center bg-Secondary1(Gold) py-2 font-text font-medium italic uppercase text-Primary2(White) text-[20px] lg:col-span-4 lg:text-[24px]">Pourcentage d'affinité</h3>
+                        <img class="col-span-2 col-start-2 lg:col-span-4 lg:col-start-8 lg:pt-5 lg:pb-32 lg:row-start-2" src="/img/Affinite_Pourcentage.webp" alt="">
+                        <p class="col-span-4 text-center font-text text-Primary2(White) lg:col-start-2 lg:self-center lg:pt-5 lg:pb-32">Notre site va alors vous proposer un pourcentage d'affinité sur chaque film/série/livre/musique.</p>
                     </div>
 
-                    <div class="grille_mobile mt-10">
-                        <h3 class="col-span-3 col-start-2 text-center bg-Secondary1(Gold) py-2 font-text font-medium italic uppercase text-Primary2(White) text-[20px]">Mise à jour du compte</h3>
-                        <img class="col-span-2 col-start-2" src="/img/Chapitre_3.webp" alt="">
-                        <p class="col-span-4 text-center font-text text-Primary2(White)">Un bouton permet de mettre à jour votre compte une fois que vous avez vu/écouté/lu quelque chose. Il y a également un système  de notation pour savoir si vous avez apprécié le film/la série/le livre/la musique.</p>
+                    <div class="grille_mobile lg:grille_desktop mt-10">
+                        <h3 class="col-span-3 col-start-2 text-center bg-Secondary1(Gold) py-2 font-text font-medium italic uppercase text-Primary2(White) text-[20px] lg:col-start-9 lg:col-span-4 lg:text-[24px]">Mise à jour du compte</h3>
+                        <img class="col-span-2 col-start-2 lg:col-span-4 lg:col-start-2 lg:pt-5 lg:pb-10" src="/img/Chapitre_3.webp" alt="">
+                        <p class="col-span-4 text-center font-text text-Primary2(White) lg:col-start-8 lg:self-center lg:pt-5 lg:pb-10">Un bouton permet de mettre à jour votre compte une fois que vous avez vu/écouté/lu quelque chose. Il y a également un système  de notation pour savoir si vous avez apprécié le film/la série/le livre/la musique.</p>
                     </div>
 
-                    <div class="grille_mobile mt-10">
-                        <h3 class="col-span-4 text-center bg-Secondary1(Gold) py-2 font-text font-medium italic uppercase text-Primary2(White) text-[20px]">Nouvelles recommandations</h3>
-                        <img class="col-span-2 col-start-2" src="/img/Chapitre_4.webp" alt="">
-                        <p class="col-span-4 text-center font-text text-Primary2(White)">A chaque fois que vous mettez à jour votre compte et que vous notez ce que vous avez vu/lu/écouté, notre algorithme de recommandation se met à jour aussi.</p>
+                    <div class="grille_mobile lg:grille_desktop mt-10">
+                        <h3 class="col-span-4 text-center bg-Secondary1(Gold) py-2 font-text font-medium italic uppercase text-Primary2(White) text-[20px] lg:col-span-5 lg:text-[24px]">Nouvelles recommandations</h3>
+                        <img class="col-span-2 col-start-2 lg:col-span-4 lg:col-start-8 lg:pt-5 lg:pb-12 lg:row-start-2" src="/img/Chapitre_4.webp" alt="">
+                        <p class="col-span-4 text-center font-text text-Primary2(White) lg:col-start-2 lg:self-center lg:pt-5 lg:pb-12">A chaque fois que vous mettez à jour votre compte et que vous notez ce que vous avez vu/lu/écouté, notre algorithme de recommandation se met à jour aussi.</p>
                     </div>
                 </div>
 
                 <div>
-                    <h2 class="bg-Secondary1(Gold) font-text font-bold text-Primary2(White) text-[24px] py-2 text-center mt-20">Multimédia</h2>
+                    <h2 class="bg-Secondary1(Gold) font-text font-bold text-Primary2(White) text-[24px] py-2 text-center mt-20 lg:hidden">Multimédia</h2>
 
-                    <div class="grille_mobile mt-10">
-                        <img class="col-span-2" src="/img/Bande_Multimedia.webp" alt="">
+                    <div class="hidden lg:grille_desktop mt-20">
+                        <h2 class="col-span-3 bg-Secondary1(Gold) font-text font-bold text-Primary2(White) text-[24px] py-2 text-center">Multimédia</h2>
+                    </div>
 
-                        <div class="col-span-2 col-start-3 flex flex-col justify-between">
+                    <div class="grille_mobile lg:grille_desktop mt-10">
+                        <img class="col-span-2 lg:col-start-2 lg:h-full lg:object-cover lg:col-span-3" src="/img/Bande_Multimedia.webp" alt="">
+
+                        <div class="col-span-2 col-start-3 flex flex-col justify-between lg:col-start-5">
                             <button class="lg:col-start-1 font-text font-bold text-Primary1(Black) bg-Primary2(White) py-3 px-5 rounded-[8px] uppercase">
                                 <RouterLink to="" class="flex justify-between">
                                     Films
@@ -147,31 +151,53 @@
                             </button>
                         </div>
 
-                        <div class="col-span-2 border border-Primary2(White) py-5 mt-5">
+                        <div class="col-span-2 border border-Primary2(White) py-5 mt-5 lg:hidden">
                             <h3 class="font-text font-bold text-Secondary1(Gold) text-[40px] text-center">60 000</h3>
                             <p class="font-text font-light text-Primary2(White) text-[20px] text-center">films</p>
                         </div>
 
-                        <div class="col-span-2 border border-Primary2(White) py-5 mt-5">
+                        <div class="col-span-2 border border-Primary2(White) py-5 mt-5 lg:hidden">
                             <h3 class="font-text font-bold text-Secondary1(Gold) text-[40px] text-center">30 000</h3>
                             <p class="font-text font-light text-Primary2(White) text-[20px] text-center">séries</p>
                         </div>
 
-                        <div class="col-span-2 border border-Primary2(White) py-5">
+                        <div class="col-span-2 border border-Primary2(White) py-5 lg:hidden">
                             <h3 class="font-text font-bold text-Secondary1(Gold) text-[28px] text-center">130 millions</h3>
                             <p class="font-text font-light text-Primary2(White) text-[20px] text-center">de livres</p>
                         </div>
 
-                        <div class="col-span-2 border border-Primary2(White) py-5">
+                        <div class="col-span-2 border border-Primary2(White) py-5 lg:hidden">
                             <h3 class="font-text font-bold text-Secondary1(Gold) text-[30px] text-center px-2">2 milliards</h3>
                             <p class="font-text font-light text-Primary2(White) text-[20px] text-center">de musiques</p>
+                        </div>
+
+                        <div class="hidden col-span-3 col-start-9 lg:flex flex-col justify-between">
+                            <div class="border border-Primary2(White) py-10">
+                                <h3 class="font-text font-bold text-Secondary1(Gold) text-[40px] text-center">60 000</h3>
+                                <p class="font-text font-light text-Primary2(White) text-[20px] text-center">films</p>
+                            </div>
+
+                            <div class="border border-Primary2(White) py-10">
+                                <h3 class="font-text font-bold text-Secondary1(Gold) text-[40px] text-center">30 000</h3>
+                                <p class="font-text font-light text-Primary2(White) text-[20px] text-center">séries</p>
+                            </div>
+
+                            <div class="border border-Primary2(White) py-10">
+                                <h3 class="font-text font-bold text-Secondary1(Gold) text-[28px] text-center">130 millions</h3>
+                                <p class="font-text font-light text-Primary2(White) text-[20px] text-center">de livres</p>
+                            </div>
+
+                            <div class="border border-Primary2(White) py-10">
+                                <h3 class="font-text font-bold text-Secondary1(Gold) text-[30px] text-center px-2">2 milliards</h3>
+                                <p class="font-text font-light text-Primary2(White) text-[20px] text-center">de musiques</p>
+                            </div>
                         </div>
                     </div>
                 </div>
                 
-                <div class="grille_mobile mt-10">
-                    <img class="col-span-4" src="/img/tv_2.webp" alt="Icone TV avec textes">
-                    <button class="col-span-2 col-start-2 lg:col-start-1 -mt-10 font-text font-medium text-Primary1(Black) bg-Secondary1(Gold) py-3 px-5 rounded-[8px]">
+                <div class="grille_mobile lg:grille_desktop mt-10">
+                    <img class="col-span-4 lg:col-start-5" src="/img/tv_2.webp" alt="Icone TV avec textes">
+                    <button class="col-span-2 col-start-2 lg:col-start-1 -mt-10 font-text font-medium text-Primary1(Black) bg-Secondary1(Gold) py-3 px-5 rounded-[8px] lg:col-start-6">
                         <RouterLink 
                             to=""
                         >
