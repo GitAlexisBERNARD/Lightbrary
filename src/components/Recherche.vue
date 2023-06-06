@@ -185,7 +185,7 @@ export default {
           <p class="text-[11px] text-Gray1">{{ item.authors }}</p>
           <p class="italic text-[10px] text-Secondary2(Beige)">{{ item.genre }}</p>
         </div>
-      
-    </template>
-  </div>
-</main></template>
+      </template>
+    </div>
+  </main>
+</template>
