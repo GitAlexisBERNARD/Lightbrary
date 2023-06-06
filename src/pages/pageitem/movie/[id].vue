@@ -1,6 +1,5 @@
 <template>
     <div v-if="film">
-        <h1>{{ film.id }}</h1>
         <p>{{ film.title }}</p>
         <p>{{ film.genres.map(genre => genre.name).join(', ') }}</p>
         <img :src="'https://image.tmdb.org/t/p/w500' + film.poster_path" :alt="film.title">
