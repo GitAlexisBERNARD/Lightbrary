@@ -13,20 +13,24 @@ export default {
       "Secondary3": "#f7e0c1",
       "Gray1": "#d3d3d3",
       "Red": "#ff1f00",
-      "Sky": "#1A2131",
     },
-    fontSize: {
-      "xs": "0.6rem",
-      "sm": "0.8rem",
-      "base": "1rem",
-      "lg": "1.5rem",
-      "xl": "2rem",
-      "2xl": "2.25rem"
-     },
     fontFamily: {
-      "ubuntu": "Ubuntu"
+      "text": "Ubuntu"
      },
+     fontSize: {
+      "menu":"14px",
+      "connexion":"16px",
+    },
+    borderRadius: {
+      "inscription":"101px",
+    },
     extend: {},
+      gridTemplateColumns: {
+        desktop: 'repeat(12, minmax(0, 86px))',
+        mobile: 'repeat(4, minmax(0, 64px))',
+        profil: 'repeat(10, minmax(0, 86px))',
+        desktop_connexion: 'repeat(12, minmax(0, 86px))',
+     }
   },
   plugins: [],
 }

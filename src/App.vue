@@ -5,6 +5,9 @@ import FooterPage from '@/components/FooterPage.vue'
 </script>
 
 <template>
+  <header>
+    Test
+  </header>
   <main>
     <!-- Suspense sera utile pour charger les données (await) -->
     <Suspense>
