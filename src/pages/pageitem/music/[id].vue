@@ -1,24 +1,81 @@
 <template>
-    <div v-if="song">artistId
-      <h1>{{ song.trackName }}</h1>
-      <img :src="song.artworkUrl100" :alt="song.trackName">
-      <p>Auteur: {{ song.artistName }}</p>
-      <p>Genre: {{ song.primaryGenreName }}</p>
-      <p>Date de création: {{ formatDate(song.releaseDate) }}</p>
-      <button @click="saveToData(song.trackId)">Marque comme vu</button>
-        <button @click="saveToSong(song.trackId)">Watchlist</button>
-      <h2>Morceaux similaires :</h2>
-      <div v-for="similarSong in similarSongs" :key="similarSong.trackId">
-        <RouterLink @click="reloadPage" :to="{ name: 'pageitem-music-id', params: { id: similarSong.trackId } }">
-        <img :src="similarSong.artworkUrl100" :alt="similarSong.trackName">
-        </RouterLink>
-        <p>{{ similarSong.trackName }}</p>
-      </div>
-    </div>
-    <div v-else>
-      <p>Vide</p>
-    </div>
-  </template>
+  <main class="bg-Primary1(Black) pb-12 absolute z-10 -mt-24 w-full lg:mt-0">
+      <section v-if="song">artistId
+        <header class="grille_mobile lg:grille_profil pt-7">
+          <img class="col-span-2 col-start-2 border border-Primary2(White) rounded-[20px] lg:col-span-3 lg:col-start-1" :src="song.artworkUrl100" :alt="song.trackName">
+
+          <div class="col-span-4 font-text text-center lg:col-span-5 lg:col-start-4 lg:text-start">
+            <h1 class="font-bold text-Primary2(White) text-[24px] lg:text-[35px]">{{ song.trackName }}</h1>
+            <h2 class="font-medium text-Secondary1(Gold) lg:text-[25px]">{{ song.artistName }}</h2>
+            <p class="text-Gray1 lg:text-[22px]">{{ formatDate(song.releaseDate) }}</p>
+
+            <div class="hidden lg:flex justify-between font-text text-Secondary1(Gold) text-[16px] pt-5">
+              <p class="border rounded-[20px] py-1 px-5">{{ song.primaryGenreName }}</p>
+            </div>
+          </div>
+
+          <div class="hidden lg:flex col-span-2 items-end gap-1">
+            <div class="bg-Secondary1(Gold) rounded-l-[6px] flex flex-col items-center justify-center p-2 gap-2 h-[90px]">
+              <like/>
+              <button class=" font-text text-Primary1(Black) text-[10px] text-center" @click="saveToSong(song.trackId)">Ajouter à ma Watchlist</button>
+            </div>
+
+            <div class="bg-Primary2(White) opacity-[0.90] rounded-r-[6px] flex flex-col items-center justify-center p-2 gap-2 h-[90px]">
+              <check/>
+              <button class="font-text text-Primary1(Black) text-[10px] text-center" @click="saveToData(song.trackId)">Marque comme vu</button>
+            </div>
+          </div>
+                  
+          <div class="col-span-4 flex justify-between font-text text-Secondary1(Gold) text-[14px] lg:hidden">
+            <p class="border rounded-[20px] py-1 px-5">{{ song.primaryGenreName }}</p>
+          </div>
+        </header>
+
+        <article>
+          <div class="grille_mobile lg:hidden">
+            <div class="col-span-4 bg-Secondary1(Gold) rounded-[6px] flex items-center p-2 gap-4">
+              <like/>
+              <button class=" font-text text-Primary1(Black) text-[10px]" @click="saveToSong(song.trackId)">Ajouter à ma Watchlist</button>
+            </div>
+
+            <div class="col-span-4 bg-Primary2(White) opacity-[0.90] rounded-[6px] flex items-center p-2 gap-4 -mt-4">
+              <check/>
+              <button class="font-text text-Primary1(Black) text-[10px]" @click="saveToData(song.trackId)">Marque comme vu</button>
+            </div>
+          </div>
+
+          <div class="grille_mobile lg:grille_profil py-5 lg:py-20">
+            <h2 class="hidden lg:block font-text font-bold text-Primary2(White) text-[24px] lg:col-span-3 lg:border-b lg:border-Secondary1(Gold) lg:pb-2">Histoire</h2>
+            <p class="col-span-4 font-text text-Primary2(White) text-[12px] lg:col-span-8">{{ book.volumeInfo.description }}</p>
+          </div>
+
+          <div class="grille_mobile mt-5 lg:hidden">
+            <button class="col-span-2 col-start-2">
+              <RouterLink class="font-text font-medium text-Secondary1(Gold) border border-Secondary1(Gold) rounded-[8px] py-3 px-10" to="">
+                Retour
+              </RouterLink>
+            </button>
+          </div>
+
+          <div class="hidden lg:grille_profil">
+            <h2 class="font-text font-bold text-Primary2(White) text-[24px] lg:col-span-3 lg:border-b lg:border-Secondary1(Gold) lg:pb-2">Morceaux similaires</h2>
+            <div v-for="similarSong in similarSongs" :key="similarSong.trackId">
+              <RouterLink @click="reloadPage" :to="{ name: 'pageitem-music-id', params: { id: similarSong.trackId } }">
+                <img :src="similarSong.artworkUrl100" :alt="similarSong.trackName">
+              </RouterLink>
+              <p>{{ similarSong.trackName }}</p>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section v-else>
+        <div>
+          <p>Vide</p>
+        </div>
+      </section>
+  </main>
+</template>
   
   <script lang="ts">
   import PocketBase from 'pocketbase';
