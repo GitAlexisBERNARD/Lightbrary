@@ -27,7 +27,7 @@
 
         <p class="col-span-4 font-text font-medium text-Primary2(White) text-[15px] lg:col-span-10 lg:text-[20px]">Genres sélectionnés: {{ selectedGenres }}</p>
 
-        <RouterLink class="col-span-2 col-start-2 lg:col-start-5 lg:row-start-2" to="/profifutilisateur">
+        <RouterLink class="col-span-2 col-start-2 lg:col-start-5 lg:row-start-2" to="/dashboard">
           <button class="font-text font-medium text-Primary1(Black) bg-Secondary1(Gold) px-5 py-3 rounded-[8px] mt-6">
             Valider
           </button>

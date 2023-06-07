@@ -5,7 +5,6 @@ import { ref } from 'vue'
   import FooterPage from '@/components/FooterPage.vue'
   import user from '@/components/icons/user.vue';
   import Polygon from '@/components/icons/Polygon_down.vue'
-  const connected = false;
   const profil= ref(false)
 </script>
 

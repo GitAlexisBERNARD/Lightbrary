@@ -1,5 +1,5 @@
 <template>
-  <main>
+  <main class="bg-Primary1(Black) text-Primary2(White)">
     <div>
       <Recherche/>
     </div>
@@ -48,7 +48,7 @@
 
             <div class="w-[69px] h-[27px] absolute top-5 right-0 z-20 flex justify-center space-x-2 rounded-tl-[20px] rounded-bl-[20px] bg-Primary1(Black) border-r border-Primary2(White)">
               <IconeAffinite class="w-[14.24px] h-[21px]"/>
-              <p class="text-Primary2(White) text-left text-18px font-text">Score d'affinité : {{ result.affinityScore -index }}</p>
+              <p class="text-Primary2(White) text-left text-18px font-text">{{ result.affinityScore -index }}</p>
             </div>
           </div>
 
@@ -59,7 +59,7 @@
 
             <div class="w-[69px] h-[27px] absolute top-5 right-0 z-20 flex justify-center space-x-2 rounded-tl-[20px] rounded-bl-[20px] bg-Primary1(Black) border-r border-Primary2(White)">
               <IconeAffinite class="w-[14.24px] h-[21px]"/>
-              <p class="text-Primary2(White) text-left text-18px font-text">Score d'affinité : {{ result.affinityScore -index }}</p>
+              <p class="text-Primary2(White) text-left text-18px font-text">{{ result.affinityScore -index }}</p>
             </div>
           </div>
 
@@ -70,7 +70,7 @@
 
             <div class="w-[69px] h-[27px] absolute top-5 right-0 z-20 flex justify-center space-x-2 rounded-tl-[20px] rounded-bl-[20px] bg-Primary1(Black) border-r border-Primary2(White)">
               <IconeAffinite class="w-[14.24px] h-[21px]"/>
-              <p class="text-Primary2(White) text-left text-18px font-text">Score d'affinité : {{ result.affinityScore -index }}</p>
+              <p class="text-Primary2(White) text-left text-18px font-text">{{ result.affinityScore -index }}</p>
             </div>
           </div>
         </div>

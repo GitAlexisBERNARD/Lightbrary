@@ -31,7 +31,7 @@ export default {
     this.userInfo = userInfo;
     const genres = await this.getGenres(pb.authStore.model.data);
     this.updateGenre(genres);
-    this.$router.push('/dashboard');
+    this.$router.push('/pageitem');
   },
   
   methods: {
