@@ -1,31 +1,62 @@
 <template>
-  <main>
-    <p>Test API</p>
-    <label for="search">Barre de recherche:</label>
-    <input type="text" id="search" v-model="search" />
-    <button @click="fetchData">OK</button>
-    <SearchIcon @click="fetchData" />
+  <main class="bg-Primary1(Black) pb-10">
+    <header class="grille_mobile lg:grille_desktop pt-10">
+      <h1 class="col-span-4 font-text font-bold text-Primary2(White) text-[24px] lg:col-span-6 lg:text-[30px]">Création profil utilisateur</h1>
+      <p class="col-span-4 font-text text-Primary2(White) text-[15px] lg:col-span-10 lg:text-[20px] pb-10">Pour finir la création de votre profil, nous vous invitons à ajouter des films, des séries, des livres et des musiques préférés via la barre de recherche ci dessous.</p>
+      <div class="col-span-4 lg:col-span-6 lg:col-start-4 flex items-center bg-[#2C2927] border border-Secondary1(Gold) rounded-[20px] gap-5 px-3">
+        <img class="w-6 h-6" src="/img/icon_search.webp" alt="Icone rechercher">
+        <input class="w-full h-14 bg-[#2C2927] font-text text-Secondary1(Gold) focus:outline-none" type="text" id="search"
+        v-model="search" placeholder="Recherche" @keyup.enter="fetchData" />
+        <!-- <button class="font-text font-bold text-Primary2(White)" @click="fetchData">OK</button>  -->
+      </div>
+    </header>
 
-    <div v-for="(item, index) in combinedResults" :key="index">
+    <div class="grille_mobile lg:grille_desktop" v-for="(item, index) in combinedResults" :key="index">
       <template v-if="item.type === 'film'">
-        <p>{{ item.title }}</p>
-        <p>{{ item.id }}</p>
-        <p>Film/Serie</p>
-        <button @click="saveToFilm(item.id)">Validation</button>
+        <div class="col-span-2 col-start-2 lg:col-span-4 lg:col-start-5 pb-10 pr-1 bg-[#2C2927] border-b-[1px] border-x-[1px] pl-5 border-Secondary1(Gold) font-text flex justify-between items-center">
+          <div>
+            <h4 class="font-bold text-[14px] text-Primary2(White) mt-2">{{ item.title }}</h4>
+            <p class="hidden">{{ item.id }}</p>
+            <p class="italic text-[10px] text-Secondary2(Beige)">Film/Serie</p>
+          </div>
+
+          <button class="mt-5" @click="saveToFilm(item.id)">
+            <img class="w-[34px]" src="/img/plus.webp" alt="Icone plus">
+          </button>
+        </div> 
       </template>
+
       <template v-else-if="item.type === 'book'">
-        <p>{{ item.title }}</p>
-        <p>Livres</p>
-        <button @click="saveToBook(item.id)">Validation</button>
+        <div class="col-span-2 col-start-2 lg:col-span-4 lg:col-start-5 pb-10 pr-1 bg-[#2C2927] border-b-[1px] border-x-[1px] pl-5 border-Secondary1(Gold) font-text flex justify-between">
+          <div>
+            <h4 class="font-bold text-[14px] text-Primary2(White) mt-2">{{ item.title }}</h4>
+            <p class="italic text-[10px] text-Secondary2(Beige)">Livres</p>
+          </div>
+
+          <button class="mt-5" @click="saveToBook(item.id)">
+            <img class="w-[34px]" src="/img/plus.webp" alt="Icone plus">
+          </button>
+        </div>
       </template>
+
       <template v-else-if="item.type === 'music'">
-        <p>{{ item.trackName }}</p>
-        <p>Musique</p>
-        <button @click="saveToMusic(item.trackId)">Validation</button>
+        <div class="col-span-2 col-start-2 lg:col-span-4 lg:col-start-5 pb-10 pr-1 bg-[#2C2927] border-b-[1px] border-x-[1px] pl-5 border-Secondary1(Gold) font-text flex justify-between">
+          <div>
+            <h4 class="font-bold text-[14px] text-Primary2(White) mt-2">{{ item.trackName }}</h4>
+            <p class="italic text-[10px] text-Secondary2(Beige)">Musique</p>
+          </div>
+
+          <button class="mt-5" @click="saveToMusic(item.trackId)">
+            <img class="w-[34px]" src="/img/plus.webp" alt="Icone plus">
+          </button>
+        </div>
       </template>
     </div>
     <br>
-    <button @click="saveToPocketBase()">Inscription</button>
+    <div class="grille_mobile lg:grille_desktop my-10">
+      <button class="col-span-2 col-start-2 lg:col-span-4 lg:col-start-5 bg-Secondary1(Gold) py-3 px-5 font-text font-medium rounded-[8px] lg:text-[20px]" @click="saveToPocketBase()">Inscription</button>
+    </div>
+    
   </main>
 </template>
 
