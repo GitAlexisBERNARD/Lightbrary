@@ -60,7 +60,7 @@ import { ref } from 'vue'
     <RouterView />
   </main>
 
-  <!-- <FooterPage/> -->
+  <FooterPage/>
 </template>
 <script lang="ts">
 import PocketBase from 'pocketbase';
