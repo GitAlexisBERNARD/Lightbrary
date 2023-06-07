@@ -1,53 +1,91 @@
 <template>
-  <div>
-    <h1>Bienvenue sur le tableau de bord</h1>
-    <div v-if="otherResults.length > 0">
-      <RouterLink :to="{ name: 'pageitem-movie-id', params: { id: otherResults[0].movieID[0] } }">
-        <img :src="otherResults[0].movie[0]" alt="Image de film">
-        <p>Score d'affinité : 100</p>
-      </RouterLink>
-      <RouterLink :to="{ name: 'pageitem-movie-id', params: { id: otherResults[0].movieID[1] } }">
-        <img :src="otherResults[0].movie[1]" alt="Image de film">
-        <p>Score d'affinité : 100</p>
-      </RouterLink>
-      <RouterLink :to="{ name: 'pageitem-book-id', params: { id: otherResults[0].bookID[0] } }">
-        <img :src="otherResults[0].book[0]" alt="Image de livre">
-        <p>Score d'affinité : 100</p>
-      </RouterLink>
-      <RouterLink :to="{ name: 'pageitem-music-id', params: { id: otherResults[0].musicID[0] } }">
-        <img :src="otherResults[0].music[0]" alt="Image de musique">
-        <p>Score d'affinité : 100</p>
-      </RouterLink>
+  <main>
+    <div>
+      <Recherche/>
     </div>
-    <p>separation</p>
-    <div v-for="result in otherResults" :key="result.genre">
-      <h2>{{ result.genre }}</h2>
-      <div v-for="index in result.minCount" :key="index">
-        <div v-if="index < result.movie.length">
-          <RouterLink :to="{ name: 'pageitem-movie-id', params: { id: result.movieID[index] } }">
-            <img :src="result.movie[index]" :alt="'Image de film ' + index">
-            <p>Score d'affinité : {{ result.affinityScore -index }}</p>
-          </RouterLink>
-        </div>
-        <div v-if="index < result.book.length">
-          <RouterLink :to="{ name: 'pageitem-book-id', params: { id: result.bookID[index] } }">
-            <img :src="result.book[index]" :alt="'Image de livre ' + index">
-            <p>Score d'affinité : {{ result.affinityScore -index }}</p>
-          </RouterLink>
-        </div>
-        <div v-if="index < result.music.length">
-          <RouterLink :to="{ name: 'pageitem-music-id', params: { id: result.musicID[index] } }">
-            <img :src="result.music[index]" :alt="'Image de musique ' + index">
-            <p>Score d'affinité : {{ result.affinityScore -index }}</p>
-          </RouterLink>
+
+    <div class="grille_mobile lg:grille_desktop pt-5">
+      <h1 class="col-span-4 font-text text-Primary2(White) text-[24px]">Notre selection</h1>
+
+      <div class="col-span-4 lg:col-span-12 flex gap-7 overflow-hidden overflow-x-scroll lg:justify-center" v-if="otherResults.length > 0">
+        <RouterLink class="flex-none" :to="{ name: 'pageitem-movie-id', params: { id: otherResults[0].movieID[0] } }">
+          <img :src="otherResults[0].movie[0]" alt="Image de film">
+          <p>Score d'affinité : 100</p>
+        </RouterLink>
+        <RouterLink class="flex-none" :to="{ name: 'pageitem-movie-id', params: { id: otherResults[0].movieID[1] } }">
+          <img :src="otherResults[0].movie[1]" alt="Image de film">
+          <p>Score d'affinité : 100</p>
+        </RouterLink>
+        <RouterLink class="flex-none" :to="{ name: 'pageitem-book-id', params: { id: otherResults[0].bookID[0] } }">
+          <img :src="otherResults[0].book[0]" alt="Image de livre">
+          <p>Score d'affinité : 100</p>
+        </RouterLink>
+        <RouterLink class="flex-none" :to="{ name: 'pageitem-music-id', params: { id: otherResults[0].musicID[0] } }">
+          <img :src="otherResults[0].music[0]" alt="Image de musique">
+          <p>Score d'affinité : 100</p>
+        </RouterLink>
+      </div>
+    </div>
+
+    <div>
+      <div class="px-5 font-text text-Primary2(White) text-[16px] flex justify-between gap-6 lg:w-[451px] lg:text-[24px] py-5">
+        <p class="text-Secondary1(Gold) border-b-[3px]">Film - Série</p>
+        <RouterLink to="/livre">
+          Livre
+        </RouterLink>
+        <RouterLink to="/musique">
+          Musique
+        </RouterLink>
+      </div>
+
+      <div v-for="result in otherResults" :key="result.genre">
+        <h2>{{ result.genre }}</h2>
+        <div class="grille_mobile lg:grille_desktop" v-for="index in result.minCount" :key="index">
+          <div class="relative min-w-[160px] max-w-[201px] col-span-2 border border-Primary2(White)" v-if="index < result.movie.length">
+            <RouterLink :to="{ name: 'pageitem-movie-id', params: { id: result.movieID[index] } }">
+              <img class="w-full h-full z-10 object-cover" :src="result.movie[index]" :alt="'Image de film ' + index">
+            </RouterLink>
+
+            <div class="w-[69px] h-[27px] absolute top-5 right-0 z-20 flex justify-center space-x-2 rounded-tl-[20px] rounded-bl-[20px] bg-Primary1(Black) border-r border-Primary2(White)">
+              <IconeAffinite class="w-[14.24px] h-[21px]"/>
+              <p class="text-Primary2(White) text-left text-18px font-text">Score d'affinité : {{ result.affinityScore -index }}</p>
+            </div>
+          </div>
+
+          <div class="relative min-w-[160px] max-w-[201px] col-span-2 border border-Primary2(White)" v-if="index < result.book.length">
+            <RouterLink :to="{ name: 'pageitem-book-id', params: { id: result.bookID[index] } }">
+              <img class="w-full h-full z-10 object-cover" :src="result.book[index]" :alt="'Image de livre ' + index">
+            </RouterLink>
+
+            <div class="w-[69px] h-[27px] absolute top-5 right-0 z-20 flex justify-center space-x-2 rounded-tl-[20px] rounded-bl-[20px] bg-Primary1(Black) border-r border-Primary2(White)">
+              <IconeAffinite class="w-[14.24px] h-[21px]"/>
+              <p class="text-Primary2(White) text-left text-18px font-text">Score d'affinité : {{ result.affinityScore -index }}</p>
+            </div>
+          </div>
+
+          <div class="relative min-w-[160px] max-w-[201px] col-span-2 border border-Primary2(White)" v-if="index < result.music.length">
+            <RouterLink :to="{ name: 'pageitem-music-id', params: { id: result.musicID[index] } }">
+              <img class="w-full h-full z-10 object-cover" :src="result.music[index]" :alt="'Image de musique ' + index">
+            </RouterLink>
+
+            <div class="w-[69px] h-[27px] absolute top-5 right-0 z-20 flex justify-center space-x-2 rounded-tl-[20px] rounded-bl-[20px] bg-Primary1(Black) border-r border-Primary2(White)">
+              <IconeAffinite class="w-[14.24px] h-[21px]"/>
+              <p class="text-Primary2(White) text-left text-18px font-text">Score d'affinité : {{ result.affinityScore -index }}</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
+  </main>
 </template>
+
+<script setup lang="ts">
+import Recherche from '@/components/Recherche.vue';
+import IconeAffinite from '@/components/icons/Affinite.vue'
+</script>
+
 <script lang="ts">
 import { RouterLink } from 'vue-router';
-import HeaderPage from '@/components/HeaderPage.vue';
 import PocketBase from 'pocketbase';
 import { verifaction } from '@/auth'; 
 verifaction();

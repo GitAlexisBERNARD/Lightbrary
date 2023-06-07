@@ -5,6 +5,7 @@ import { ref } from 'vue'
   import FooterPage from '@/components/FooterPage.vue'
   import user from '@/components/icons/user.vue';
   import Polygon from '@/components/icons/Polygon_down.vue'
+  const connected = false;
   const profil= ref(false)
 </script>
 
@@ -52,8 +53,8 @@ import { ref } from 'vue'
         </div>
       </template>
     </HeaderPage>
-  
   </div>
+  
   <main>
     <!-- Suspense sera utile pour charger les données (await) -->
     <!-- Affiche la page -->
