@@ -39,34 +39,26 @@
 
                 <nav class="invisible opacity-0 fixed inset-0 h-screen w-screen bg-Primary1(Black) text-2xl text-white transition-all duration-300 ease-in-out lg:visible lg:relative lg:flex lg:h-auto lg:w-auto lg:items-center lg:bg-transparent lg:tracking-wide lg:opacity-100" 
                 :class="{'!visible !opacity-100':activeMenu}"
-                v-scroll-lock="activeMenu"
-                >
+                v-scroll-lock="activeMenu">
                     <ul class="mt-[25vh] ml-16 lg:m-0 lg:flex">
-                        <li class="hidden font-text font-medium  text-Primary2(White) text-menu lg:block"><RouterLink class="menu-link" to="/"
+                        <li class="hidden font-text font-medium  text-Primary2(White) text-menu lg:block"><RouterLink class="menu-link" to="/pageitem"
                             @click="closeMenu">Accueil</RouterLink></li>
                         <li class="font-text font-medium  text-Primary2(White) text-menu">
-                            <RouterLink class="flex items-center gap-5 menu-link" to="/pageitem/film-serie"
+                            <RouterLink class="flex items-center gap-5 menu-link" to="/pageitem/movie"
                             @click="closeMenu">
                                 <FilmIcon class="lg:hidden"/>
-                                Films
+                                Films/ Séries
                             </RouterLink>
                         </li>
                         <li class="font-text font-medium  text-Primary2(White) text-menu">
-                            <RouterLink class="flex items-center gap-5 menu-link" to="/séries"
-                            @click="closeMenu">
-                                <SerieIcon class="lg:hidden"/>
-                                Séries
-                            </RouterLink>
-                        </li>
-                        <li class="font-text font-medium  text-Primary2(White) text-menu">
-                            <RouterLink class="flex items-center gap-5 menu-link" to="/livres"
+                            <RouterLink class="flex items-center gap-5 menu-link" to="/pageitem/book"
                             @click="closeMenu">
                                 <BookIcon class="lg:hidden"/>
                                 Livres
                             </RouterLink>
                         </li>
                         <li class="font-text font-medium  text-Primary2(White) text-menu">
-                            <RouterLink class="flex items-center gap-5 menu-link" to="/musiques"
+                            <RouterLink class="flex items-center gap-5 menu-link" to="/pageitem/music"
                             @click="closeMenu">
                                 <MusicIcon class="lg:hidden"/>
                                 Musiques

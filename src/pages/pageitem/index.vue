@@ -45,12 +45,12 @@
     </div>
   </div>
 </template>
-
-
 <script lang="ts">
 import { RouterLink } from 'vue-router';
 import HeaderPage from '@/components/HeaderPage.vue';
 import PocketBase from 'pocketbase';
+import { verifaction } from '@/auth'; 
+verifaction();
 
 function rechargerPageUneSeuleFois() {
   if (!sessionStorage.getItem('pageReloaded')) {
@@ -70,6 +70,7 @@ export default {
     };
   },
   async mounted() {
+
     var pocketbase_ip = '';
     if (process.env.NODE_ENV === 'production') {
       pocketbase_ip = '193.168.146.150:80';
