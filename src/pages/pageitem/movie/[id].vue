@@ -1,24 +1,110 @@
 <template>
-    <div v-if="film">
-        <p>{{ film.title }}</p>
-        <p>{{ film.genres.map(genre => genre.name).join(', ') }}</p>
-        <img :src="'https://image.tmdb.org/t/p/w500' + film.poster_path" :alt="film.title">
-        <p>{{ film.overview }}</p>
-        <button @click="saveToData(film.id)">Marque comme vu</button>
-        <button @click="saveToFilm(film.id)">Watchlist</button>
-        <div>
-            <h2>Films similaire :</h2>
-            <div v-for="filmss in films" :key="filmss.id">
-                <RouterLink @click="reloadPage" :to="{ name: 'pageitem-movie-id', params: { id: filmss.id } }">
-                    <img :src="'https://image.tmdb.org/t/p/w500' + filmss.poster_path" :alt="filmss.title">
-                </RouterLink>
+    <main class="bg-Primary1(Black) pb-12 absolute z-10 -mt-24 w-full lg:mt-0">
+        <section v-if="film">
+            <header class="grille_mobile lg:grille_profil pt-7">
+                <img class="col-span-2 col-start-2 border border-Primary2(White) rounded-[20px] lg:col-span-3 lg:col-start-1" :src="'https://image.tmdb.org/t/p/w500' + film.poster_path" :alt="film.title">
+
+                <div class="col-span-4 font-text text-center lg:col-span-5 lg:col-start-4 lg:text-start ">
+                    <h1 class="font-bold text-Primary2(White) text-[24px] lg:text-[35px]">{{ film.title }}</h1>
+                    <!-- <h2 class="font-medium text-Secondary1(Gold) lg:text-[25px]">Steven Spielberg</h2> -->
+
+                    <div class="hidden lg:flex justify-between font-text text-Secondary1(Gold) text-[16px] pt-5">
+                        <p class="border rounded-[20px] py-1 px-5">{{ film.genres.map(genre => genre.name).join(', ') }}</p>
+                    </div>
+
+                    <div class="hidden lg:flex flex-col py-5">
+                        <div class="flex items-center gap-2">
+                            <Affinite class="w-[25px]"/>
+                            <p class="font-text font-bold text-Primary2(White)">98%</p>
+                        </div>
+
+                        <div class="flex items-center gap-2">
+                            <p class="font-text text-Primary2(White) text-[14px]">Score Metacritic</p>
+                            <p class="font-text font-bold text-Primary2(White) bg-[#66CC33] p-1">100</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hidden lg:flex col-span-2 items-end gap-1">
+                    <div class="bg-Secondary1(Gold) rounded-l-[6px] flex flex-col items-center justify-center p-2 gap-2 h-[90px]">
+                        <like/>
+                        <button class="font-text text-Primary1(Black) text-[10px] text-center" @click="saveToFilm(film.id)">Ajouter à ma Watchlist</button>
+                    </div>
+
+                    <div class="bg-Primary2(White) opacity-[0.90] rounded-r-[6px] flex flex-col items-center justify-center p-2 gap-2 h-[90px]">
+                        <check/>
+                        <button class=" font-text text-Primary1(Black) text-[10px] text-center" @click="saveToData(film.id)">Marque comme vu</button>
+                    </div>
+                </div>
+                
+                <div class="col-span-4 flex justify-between font-text text-Secondary1(Gold) text-[14px] lg:hidden">
+                    <p class="border rounded-[20px] py-1 px-5">{{ film.genres.map(genre => genre.name).join(', ') }}</p>
+                </div>
+            </header>
+
+            <article>
+                <div class="grille_mobile py-5 lg:hidden">
+                    <div class="col-span-2 flex items-center gap-2">
+                        <Affinite class="w-[25px]"/>
+                        <p class="font-text font-bold text-Primary2(White)">98%</p>
+                    </div>
+
+                    <div class="col-span-2 flex items-center justify-end gap-2">
+                        <p class="font-text text-Primary2(White) text-[14px]">Score Metacritic</p>
+                        <p class="font-text font-bold text-Primary2(White) bg-[#66CC33] p-1">100</p>
+                    </div>
+                </div>
+
+                <div class="grille_mobile lg:hidden">
+                    <div class="col-span-4 bg-Secondary1(Gold) rounded-[6px] flex items-center p-2 gap-4">
+                        <like/>
+                        <button class="font-text text-Primary1(Black) text-[10px] text-center" @click="saveToFilm(film.id)">Ajouter à ma Watchlist</button>
+                    </div>
+
+                    <div class="col-span-4 bg-Primary2(White) opacity-[0.90] rounded-[6px] flex items-center p-2 gap-4 -mt-4">
+                        <check/>
+                        <button class=" font-text text-Primary1(Black) text-[10px] text-center" @click="saveToData(film.id)">Marque comme vu</button>
+                    </div>
+                </div>
+
+                <div class="grille_mobile lg:grille_profil py-5 lg:py-20">
+                    <h2 class="hidden lg:block font-text font-bold text-Primary2(White) text-[24px] lg:col-span-3 lg:border-b lg:border-Secondary1(Gold) lg:pb-2">Histoire</h2>
+                    <p class="col-span-4 font-text text-Primary2(White) text-[12px] lg:col-span-8">{{ film.overview }}</p>
+                </div>
+
+                <div class="grille_mobile mt-5 lg:hidden">
+                    <button class="col-span-2 col-start-2">
+                        <RouterLink class="font-text font-medium text-Secondary1(Gold) border border-Secondary1(Gold) rounded-[8px] py-3 px-10" to="">
+                            Retour
+                        </RouterLink>
+                    </button>
+                </div>
+
+                <div class="hidden lg:grille_profil">
+                    <h2 class="font-text font-bold text-Primary2(White) text-[24px] lg:col-span-3 lg:border-b lg:border-Secondary1(Gold) lg:pb-2">Films similaires</h2>
+                    <div v-for="filmss in films" :key="filmss.id">
+                        <RouterLink @click="reloadPage" :to="{ name: 'pageitem-movie-id', params: { id: filmss.id } }">
+                            <img :src="'https://image.tmdb.org/t/p/w500' + filmss.poster_path" :alt="filmss.title">
+                        </RouterLink>
+                    </div>
+                </div>
+            </article>
+        </section>
+
+        <section v-else>
+            <div >
+                <p>Vide</p>
             </div>
-        </div>
-    </div>
-    <div v-else>
-        <p>Vide</p>
-    </div>
+        </section>
+    </main>
 </template>
+
+<script setup lang="ts">
+import Affinite from '@/components/icons/Affinite.vue';
+import like from '@/components/icons/like(black).vue';
+import check from '@/components/icons/check.vue'
+import HomeCard from '@/components/HomeCard.vue';
+</script>
 
 <script lang="ts">
 import PocketBase from 'pocketbase';
